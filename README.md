@@ -1,7 +1,7 @@
-# Website Profil & Portal Resmi Sekolah Solid
-**Sekolah Solid, Kabupaten Lima Puluh Kota, Sumatera Barat**
+# Website Profil & Portal Resmi SMKN 2 Guguak
+**SMK Negeri 2 Kecamatan Guguak, Kabupaten Lima Puluh Kota, Sumatera Barat**
 
-Website modern institusional ini telah dirombak dan diselaraskan secara komprehensif mengikuti standar desain **[Stratford Academy (stratford.org)](https://www.stratford.org/)**, sebuah institusi pendidikan terkemuka berstandar internasional, yang disesuaikan dengan identitas lokal dan kebutuhan vokasi Sekolah Solid.
+Website modern institusional ini telah dirombak dan diselaraskan secara komprehensif mengikuti standar desain **[Stratford Academy (stratford.org)](https://www.stratford.org/)**, sebuah institusi pendidikan terkemuka berstandar internasional, yang disesuaikan dengan identitas lokal dan kebutuhan vokasi SMKN 2 Guguak.
 
 ---
 
@@ -19,7 +19,7 @@ Website modern institusional ini telah dirombak dan diselaraskan secara komprehe
    * **Palet Warna:** Perpaduan resmi *Stratford Navy Blue* (`#051021`, `#0a1c38`, `#0f2b54`), aksen *Imperial Gold* (`#c69214`, `#dca626`), dan putih bersih.
 
 3. **Hero Section Monumental:**
-   * Tagline: *"Welcome to Sekolah Solid — Where Excellence Takes Flight"*.
+   * Tagline: *"Welcome to SMK Negeri 2 Guguak — Where Excellence Takes Flight"*.
    * Latar belakang visual kampus berskala sinematik dengan overlay gradasi elegan.
    * Tiga tombol tindakan utama (*Inquire Today, Experience Campus, Apply for 2026/2027*).
 
@@ -54,7 +54,7 @@ Website modern institusional ini telah dirombak dan diselaraskan secara komprehe
 ```
 smkn2guguak-web/
 ├── assets/
-│   └── logo.png     # Logo resmi Sekolah Solid (Bintang 8 Emas & Hijau)
+│   └── logo.png     # Logo resmi SMKN 2 Guguak (Bintang 8 Emas & Hijau)
 ├── index.html       # Beranda lengkap dengan layout Stratford Academy
 ├── style.css        # Desain CSS Stratford (Navy/Gold palette, cards, preloader)
 ├── app.js           # Kontroler JS (Modal Inquire, Modal PPDB, Detail Jurusan, Tur)

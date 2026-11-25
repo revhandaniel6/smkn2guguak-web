@@ -288,7 +288,7 @@ const PROGRAM_DATABASE = {
     ],
     facilities: 'Laboratorium Software & Coding ber-AC dengan PC Core i7, koneksi fiber optik gigabit, dan smart monitor presentasi.',
     careers: ['Junior Software Engineer', 'Web Developer', 'Mobile App Developer', 'UI/UX Designer', 'Software QA Tester', 'Tech Entrepreneur / Freelancer'],
-    certification: 'Sertifikasi Profesi BNSP Skema Junior Web Programmer & LSP-P1 Sekolah Solid'
+    certification: 'Sertifikasi Profesi BNSP Skema Junior Web Programmer & LSP-P1 SMKN 2 Guguak'
   },
   tjkt: {
     title: 'Teknik Jaringan Komputer & Telekomunikasi (TJKT)',
@@ -343,7 +343,7 @@ const PROGRAM_DATABASE = {
       'Akuntansi Lembaga / Instansi Pemerintahan',
       'Layanan Perbankan & Lembaga Keuangan Mikro'
     ],
-    facilities: 'Bank Mini Sekolah Solid (Simulasi Teller & Customer Service), Lab Komputer Akuntansi lengkap dengan software akuntansi legal berlisensi.',
+    facilities: 'Bank Mini SMKN 2 Guguak (Simulasi Teller & Customer Service), Lab Komputer Akuntansi lengkap dengan software akuntansi legal berlisensi.',
     careers: ['Staff Akuntansi / Pembukuan', 'Staff Administrasi Keuangan Perusahaan', 'Teller / Customer Service Bank', 'Staff Pajak', 'Kasir & Pengelola UMKM'],
     certification: 'Sertifikasi BNSP Teknisi Akuntansi Yunior & Sertifikasi MYOB Authorized'
   },
@@ -496,7 +496,7 @@ function initCampusFacilitiesTour() {
   const FACILITIES_DATA = {
     green_campus: {
       title: 'Lingkungan Asri & Hijau (Green Campus 12.120 m²)',
-      desc: 'Dikelilingi pepohonan rindang dan panorama alam Nagari VII Koto Talago, Sekolah Solid memberikan iklim belajar yang sejuk, bebas kebisingan, dan menunjang konsentrasi para siswa.',
+      desc: 'Dikelilingi pepohonan rindang dan panorama alam Nagari VII Koto Talago, SMKN 2 Guguak memberikan iklim belajar yang sejuk, bebas kebisingan, dan menunjang konsentrasi para siswa.',
       tag: 'Karakter & Kenyamanan Belajar',
       img: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80'
     },
