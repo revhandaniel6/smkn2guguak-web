@@ -721,8 +721,25 @@ function initISZLScrollEffects() {
   const heroGlassCard = document.getElementById('hero-editorial-glass-card');
   const heroScrollCue = document.getElementById('hero-scroll-cue');
   const manifestoSection = document.getElementById('manifesto-strip-section');
+  const manifestoStrip = document.getElementById('manifesto-bg-strip');
+  const manifestoCard = document.getElementById('manifesto-card');
   const photoRail = document.getElementById('iszl-photo-rail');
   const parallaxImages = document.querySelectorAll('.stratford-division-card img, .stratford-news-card img');
+
+  function syncManifestoStripBounds() {
+    if (!manifestoStrip || !manifestoSection || !manifestoCard) return;
+    if (window.innerWidth >= 768) {
+      const secRect = manifestoSection.getBoundingClientRect();
+      const cardRect = manifestoCard.getBoundingClientRect();
+      const leftInsideCard = Math.max(0, Math.round(cardRect.left - secRect.left + 18));
+      manifestoStrip.style.left = `${leftInsideCard}px`;
+    } else {
+      manifestoStrip.style.left = '';
+    }
+  }
+
+  syncManifestoStripBounds();
+  window.addEventListener('resize', syncManifestoStripBounds);
 
   const easeInOutCubic = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
 
@@ -816,15 +833,38 @@ function initISZLScrollEffects() {
       }
     }
 
-    // 5. Manifesto Horizontal Photo Rail Scrubbing (ISZL 00:04 Style)
+    // 5. Manifesto Horizontal Photo Rail Scrubbing + Frosted Glass Blur & Vanish
     if (photoRail && manifestoSection) {
       const rect = manifestoSection.getBoundingClientRect();
-      if (rect.top < window.innerHeight && rect.bottom > 0) {
-        const totalTravel = window.innerHeight + rect.height;
-        const mProgress = Math.min(1, Math.max(0, (window.innerHeight - rect.top) / totalTravel));
-        const maxShift = window.innerWidth >= 768 ? 820 : 320;
-        const railOffset = mProgress * maxShift;
-        photoRail.style.transform = `translate3d(-${railOffset}px, 0, 0)`;
+      syncManifestoStripBounds();
+      const totalTravel = window.innerHeight + rect.height;
+      const mProgress = Math.min(1, Math.max(0, (window.innerHeight - rect.top) / totalTravel));
+      const maxShift = window.innerWidth >= 768 ? 820 : 320;
+      const railOffset = mProgress * maxShift;
+      photoRail.style.transform = `translate3d(-${railOffset}px, 0, 0)`;
+
+      if (manifestoCard) {
+        // Turn increasingly translucent / frosted-glass as images move behind the card
+        const glassP = Math.min(1, Math.max(0, (mProgress - 0.14) / 0.40));
+        // Deepen blur & fade out as user keeps scrolling down past the card
+        const vanishRaw = Math.min(1, Math.max(0, (mProgress - 0.54) / 0.34));
+        const v = vanishRaw * vanishRaw * (3 - 2 * vanishRaw);
+
+        const backdropBlur = 12 + glassP * 12 + v * 14;
+        const alphaTop = Math.max(0.14, 0.84 - glassP * 0.30 - v * 0.38);
+        const alphaBot = Math.max(0.10, 0.78 - glassP * 0.32 - v * 0.34);
+        const cardBlur = v * 16;
+        const cardOpacity = Math.max(0, 1 - v * 1.05);
+        const cardLift = v * 28;
+        const cardScale = 1 - v * 0.04;
+
+        manifestoCard.style.background = `linear-gradient(135deg, rgba(6, 56, 37, ${alphaTop.toFixed(3)}) 0%, rgba(4, 31, 21, ${alphaBot.toFixed(3)}) 100%)`;
+        manifestoCard.style.backdropFilter = `blur(${backdropBlur.toFixed(1)}px)`;
+        manifestoCard.style.webkitBackdropFilter = `blur(${backdropBlur.toFixed(1)}px)`;
+        manifestoCard.style.filter = cardBlur > 0.05 ? `blur(${cardBlur.toFixed(2)}px)` : 'none';
+        manifestoCard.style.opacity = `${cardOpacity.toFixed(3)}`;
+        manifestoCard.style.transform = `translate3d(0, -${cardLift.toFixed(1)}px, 0) scale(${cardScale.toFixed(4)})`;
+        manifestoCard.style.pointerEvents = cardOpacity > 0.15 ? 'auto' : 'none';
       }
     }
 

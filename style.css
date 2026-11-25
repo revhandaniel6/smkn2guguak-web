@@ -1211,16 +1211,20 @@ html.lenis, html.lenis body {
   color: #ffffff;
 }
 
-/* 3. Centered Community Manifesto Card ("Kita Semua adalah SMKN 2 Guguak") */
+/* 3. Left-Aligned Frosted Glass Community Manifesto Card ("Kita Semua adalah SMKN 2 Guguak") */
 .iszl-manifesto-card {
-  background: linear-gradient(135deg, #063825 0%, #041f15 100%);
+  background: linear-gradient(135deg, rgba(6, 56, 37, 0.84) 0%, rgba(4, 31, 21, 0.78) 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   color: #ffffff;
   border-radius: 16px;
   padding: 44px 36px;
-  box-shadow: 0 25px 60px rgba(4, 31, 21, 0.5);
+  box-shadow: 0 25px 60px rgba(4, 31, 21, 0.45);
   position: relative;
-  border: 1px solid rgba(16, 185, 129, 0.25);
+  z-index: 20;
+  border: 1px solid rgba(16, 185, 129, 0.32);
   border-top: 4px solid #059669;
+  will-change: transform, opacity, filter, backdrop-filter;
 }
 
 /* 4. Giant Circular Stat Badges (Harmonized with SMKN 2 Guguak Brand Identity) */

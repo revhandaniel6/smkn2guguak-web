@@ -54,7 +54,7 @@
   <script src="lucide.min.js"></script>
 
   <!-- Custom Stratford Stylesheet -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=2">
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased selection:bg-emerald-800 selection:text-white">
 
@@ -542,7 +542,7 @@
          ======================================================================== -->
     <section id="manifesto-strip-section" class="relative py-20 sm:py-24 overflow-hidden">
       <!-- Background Scrubbed Horizontal Photo Strip (ISZL 00:04 Style) -->
-      <div class="iszl-manifesto-bg-strip">
+      <div id="manifesto-bg-strip" class="iszl-manifesto-bg-strip">
         <div id="iszl-photo-rail" class="iszl-horizontal-strip-rail">
           <!-- Photo 1 -->
           <div class="iszl-strip-card">
@@ -609,8 +609,8 @@
 
       <!-- Left-Aligned Community Manifesto Card -->
       <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-20">
-        <div class="max-w-xl mr-auto">
-          <div class="iszl-manifesto-card text-left iszl-reveal">
+        <div class="max-w-xl mr-auto iszl-reveal">
+          <div id="manifesto-card" class="iszl-manifesto-card text-left">
             <div class="text-5xl text-stratford-gold-400 font-serif leading-none mb-3">“</div>
             <h3 class="text-2xl sm:text-3xl md:text-4xl font-bold font-serif text-white mb-4">
               Kita semua adalah SMKN 2 Guguak
@@ -1578,6 +1578,6 @@
     lucide.createIcons();
   </script>
   <!-- Application JS -->
-  <script src="app.js"></script>
+  <script src="app.js?v=2"></script>
 </body>
 </html>
