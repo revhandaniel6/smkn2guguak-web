@@ -719,7 +719,7 @@ function initISZLScrollEffects() {
   const heroBg = document.getElementById('hero-bg-img');
   const heroContent = document.getElementById('hero-content');
   const heroGlassCard = document.getElementById('hero-editorial-glass-card');
-  const gatewayBar = document.querySelector('.stratford-gateway-bar') || document.getElementById('main-content-card');
+  const siteHeader = document.getElementById('site-header');
   const heroScrollCue = document.getElementById('hero-scroll-cue');
   const manifestoSection = document.getElementById('manifesto-strip-section');
   const manifestoStrip = document.getElementById('manifesto-bg-strip');
@@ -820,13 +820,16 @@ function initISZLScrollEffects() {
         heroBg.style.transform = `scale(${1.06 - heroProgress * 0.06})`;
       }
 
-      // Frosted Glass Editorial Card: enters smoothly, rises upward with scroll, and blurs/vanishes at the gateway boundary
+      // Frosted Glass Editorial Card: enters smoothly, rises upward with scroll, and blurs/vanishes past 1cm below the top navbar
       if (heroGlassCard) {
-        const enterRaw = Math.min(1, Math.max(0, (extendedHeroProgress - 0.38) / 0.26));
+        const enterRaw = Math.min(1, Math.max(0, (extendedHeroProgress - 0.38) / 0.24));
         const enterEase = 1 - Math.pow(1 - enterRaw, 3);
 
-        const riseProgress = Math.max(0, extendedHeroProgress - 0.38);
-        const yOffsetPx = isDesktop ? (38 - riseProgress * 145) : (28 - riseProgress * 110);
+        const riseProgress = Math.max(0, extendedHeroProgress - 0.46);
+        const upRange = isDesktop
+          ? Math.max(240, window.innerHeight * 0.36)
+          : Math.max(220, window.innerHeight * 0.52);
+        const yOffsetPx = (isDesktop ? 44 : 36) * (1 - enterEase) - riseProgress * upRange;
         const xOffsetPx = isDesktop ? (1 - enterEase) * 32 : 0;
 
         if (isDesktop) {
@@ -835,17 +838,12 @@ function initISZLScrollEffects() {
           heroGlassCard.style.transform = `translate3d(0, ${yOffsetPx.toFixed(1)}px, 0)`;
         }
 
-        let exitEase = 0;
-        if (gatewayBar) {
-          const gatewayTop = gatewayBar.getBoundingClientRect().top;
-          const cardBottom = heroGlassCard.getBoundingClientRect().bottom;
-          const gapPx = gatewayTop - cardBottom;
-          const exitRaw = Math.min(1, Math.max(0, (140 - gapPx) / 220));
-          exitEase = exitRaw * exitRaw * (3 - 2 * exitRaw);
-        } else {
-          const fallbackRaw = Math.min(1, Math.max(0, (extendedHeroProgress - 1.05) / 0.35));
-          exitEase = fallbackRaw * fallbackRaw * (3 - 2 * fallbackRaw);
-        }
+        const headerBottom = siteHeader ? siteHeader.getBoundingClientRect().bottom : 88;
+        const cardTop = heroGlassCard.getBoundingClientRect().top;
+        const gapToHeaderPx = cardTop - headerBottom;
+        const oneCmPx = 38;
+        const exitRaw = Math.min(1, Math.max(0, (oneCmPx - gapToHeaderPx) / 110));
+        const exitEase = exitRaw * exitRaw * (3 - 2 * exitRaw);
 
         const cardOpacity = Math.max(0, enterEase * (1 - exitEase * 1.05));
         const cardBlur = exitEase * 16;
