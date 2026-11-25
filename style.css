@@ -912,25 +912,68 @@ html.lenis, html.lenis body {
   opacity: 1;
 }
 
-/* ISZL Pinned Curtain Track */
+/* ISZL Pinned Shrink-to-Frame Track */
 #hero-pinned-track {
   position: relative;
-  height: 240vh;
+  height: 250vh;
 }
 
 .hero-sticky-stage {
   position: sticky;
   top: 0;
   height: 100vh;
-  min-height: 680px;
+  min-height: 640px;
   width: 100%;
   overflow: hidden;
+  background-color: #ffffff;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  padding-top: clamp(80px, 11vh, 120px);
+  justify-content: center;
+  padding-top: 4.5rem;
   padding-bottom: 1.5rem;
+}
+
+/* ISZL Frosted Glass Editorial Card (Appears beside shrunk hero frame) */
+.iszl-hero-glass-card {
+  position: absolute;
+  right: 7%;
+  top: 50%;
+  transform: translate3d(44px, -50%, 0);
+  width: min(410px, 40vw);
+  z-index: 20;
+  padding: 28px 30px;
+  border-radius: 16px;
+  background: rgba(248, 250, 252, 0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 24px 60px rgba(4, 31, 21, 0.14);
+  will-change: transform, opacity;
+}
+
+@media (max-width: 767px) {
+  .iszl-hero-glass-card {
+    right: 5%;
+    left: 5%;
+    top: auto;
+    bottom: 7%;
+    width: auto;
+    padding: 20px;
+    transform: translate3d(0, 24px, 0);
+  }
+}
+
+/* ISZL Manifesto Background Horizontal Strip */
+.iszl-manifesto-bg-strip {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0.92;
 }
 
 /* Elevate sheet over pinned stage */

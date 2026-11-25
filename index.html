@@ -366,20 +366,20 @@
 
   <main>
     <!-- ========================================================================
-         3. ISZL SWISS STYLE: PINNED HERO CURTAIN & SCALE-IN TRACK
+         3. ISZL SWISS STYLE: PINNED HERO SHRINK-TO-FRAME & GLASS CARD TRACK
          ======================================================================== -->
-    <div id="hero-pinned-track" class="relative z-10" style="height: 240vh;">
-      <section class="hero-sticky-stage sticky top-0 h-screen w-full flex flex-col items-center justify-start overflow-hidden text-white pt-24 sm:pt-28 md:pt-32">
+    <div id="hero-pinned-track" class="relative z-10" style="height: 250vh;">
+      <section class="hero-sticky-stage sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden text-white bg-white">
         
-        <!-- High-Impact Background Image with Scrubbed Parallax Scale -->
-        <div class="absolute inset-0 z-0 overflow-hidden">
+        <!-- High-Impact Background Image Frame (Shrinks inward on scroll like ISZL) -->
+        <div id="hero-media-frame" class="absolute inset-0 z-0 overflow-hidden will-change-[clip-path]">
           <img 
             id="hero-bg-img"
             src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1920&q=80" 
             alt="Kampus SMKN 2 Guguak" 
-            class="w-full h-full object-cover object-center filter brightness-95 hero-parallax-bg scale-110"
+            class="w-full h-full object-cover object-center filter brightness-95 hero-parallax-bg scale-105"
           />
-          <div class="absolute inset-0 stratford-hero-overlay"></div>
+          <div id="hero-overlay" class="absolute inset-0 stratford-hero-overlay transition-opacity duration-75"></div>
         </div>
 
         <!-- Content with Kinetic Fade & Lift -->
@@ -417,73 +417,20 @@
               Apply for 2026/2027
             </button>
           </div>
+        </div>
 
-          <!-- ISZL Signature Horizontal Photo Strip (Scrubbed with Scroll) -->
-          <div class="iszl-horizontal-strip-wrapper mt-6 sm:mt-8 w-full max-w-full">
-            <div id="iszl-photo-rail" class="iszl-horizontal-strip-rail">
-              <!-- Photo 1 -->
-              <div class="iszl-strip-card">
-                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80" alt="Lab Rekayasa Perangkat Lunak PPLG">
-                <div class="iszl-strip-card-overlay">
-                  <div>
-                    <span class="text-[10px] uppercase font-bold text-stratford-gold-400 block tracking-wider">Teknologi PPLG</span>
-                    <span class="text-xs font-bold leading-tight block">Lab Rekayasa Software & Game</span>
-                  </div>
-                </div>
-              </div>
-              <!-- Photo 2 -->
-              <div class="iszl-strip-card">
-                <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80" alt="Lab Jaringan Komputer & Telekomunikasi TJKT">
-                <div class="iszl-strip-card-overlay">
-                  <div>
-                    <span class="text-[10px] uppercase font-bold text-stratford-gold-400 block tracking-wider">Infrastruktur TJKT</span>
-                    <span class="text-xs font-bold leading-tight block">Fiber Optic, Cisco & Server</span>
-                  </div>
-                </div>
-              </div>
-              <!-- Photo 3 -->
-              <div class="iszl-strip-card">
-                <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&w=600&q=80" alt="Studio Desain Komunikasi Visual DKV">
-                <div class="iszl-strip-card-overlay">
-                  <div>
-                    <span class="text-[10px] uppercase font-bold text-stratford-gold-400 block tracking-wider">Kreatif DKV</span>
-                    <span class="text-xs font-bold leading-tight block">Studio Fotografi & Video Editing</span>
-                  </div>
-                </div>
-              </div>
-              <!-- Photo 4 -->
-              <div class="iszl-strip-card">
-                <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=600&q=80" alt="Bank Mini & Akuntansi Finansial AKL">
-                <div class="iszl-strip-card-overlay">
-                  <div>
-                    <span class="text-[10px] uppercase font-bold text-stratford-gold-400 block tracking-wider">Keuangan AKL</span>
-                    <span class="text-xs font-bold leading-tight block">Bank Mini & Praktik Finansial</span>
-                  </div>
-                </div>
-              </div>
-              <!-- Photo 5 -->
-              <div class="iszl-strip-card">
-                <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=600&q=80" alt="Manajemen Perkantoran & Protokoler MPLB">
-                <div class="iszl-strip-card-overlay">
-                  <div>
-                    <span class="text-[10px] uppercase font-bold text-stratford-gold-400 block tracking-wider">Corporate MPLB</span>
-                    <span class="text-xs font-bold leading-tight block">Simulasi Kantor & Protokoler</span>
-                  </div>
-                </div>
-              </div>
-              <!-- Photo 6 -->
-              <div class="iszl-strip-card">
-                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80" alt="Green Campus & Karakter SMKN 2 Guguak">
-                <div class="iszl-strip-card-overlay">
-                  <div>
-                    <span class="text-[10px] uppercase font-bold text-stratford-gold-400 block tracking-wider">Karakter & Budaya</span>
-                    <span class="text-xs font-bold leading-tight block">Green Campus 1,2 Ha Lima Puluh Kota</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+        <!-- ISZL Style: Frosted Glass Editorial Card (Reveals as Hero Photo Shrinks into Frame) -->
+        <div id="hero-editorial-glass-card" class="iszl-hero-glass-card" style="opacity: 0; pointer-events: none;">
+          <p class="text-xs sm:text-sm md:text-[15px] text-slate-800 leading-relaxed font-medium">
+            Terletak di kawasan asri Nagari VII Koto Talago, Kabupaten Lima Puluh Kota, <strong class="text-[#004d22]">SMK Negeri 2 Guguak</strong> adalah komunitas belajar vokasi yang ramah dan suportif, tempat talenta muda berkembang melalui ekosistem praktik industri yang autentik.
+          </p>
+          <div class="mt-4 pt-3 border-t border-slate-900/10 flex items-center justify-between text-xs font-bold text-[#00923F]">
+            <span>Green Campus &amp; Industri</span>
+            <a href="#about" class="inline-flex items-center gap-1 hover:text-[#004d22] transition-colors">
+              <span>Jelajahi Profil</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
           </div>
-
         </div>
 
         <!-- ISZL Style: Subtle Animated Scroll Indicator -->
@@ -591,23 +538,92 @@
     </section>
 
     <!-- ========================================================================
-         ISZL STYLE: COMMUNITY MANIFESTO CARD ("Kita Semua adalah SMKN 2 Guguak")
+         ISZL STYLE: COMMUNITY MANIFESTO CARD + SCRUBBED PHOTO STRIP
          ======================================================================== -->
-    <div class="max-w-4xl mx-auto px-4 mt-16 mb-8 relative z-30">
-      <div class="iszl-manifesto-card text-center iszl-reveal">
-        <div class="text-5xl text-stratford-gold-400 font-serif leading-none mb-3">“</div>
-        <h3 class="text-2xl sm:text-3xl md:text-4xl font-bold font-serif text-white mb-4">
-          Kita semua adalah SMKN 2 Guguak
-        </h3>
-        <p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto mb-8 font-light">
-          Kami adalah institusi pendidikan kejuruan negeri terdepan di Kabupaten Lima Puluh Kota yang berdedikasi menumbuhkan kebersamaan, menyediakan pendidikan vokasi komprehensif, dan memberdayakan siswa untuk menjadi pembelajar seumur hidup yang berakhlak mulia, berwawasan industri, dan siap berkarier secara global.
-        </p>
-        <a href="#about" class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-stratford-gold-500 hover:bg-stratford-gold-400 text-stratford-navy-950 font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-stratford-gold-500/25 transition-all hover:scale-105">
-          <span>Misi dan Visi Kami</span>
-          <i data-lucide="arrow-right" class="w-4 h-4"></i>
-        </a>
+    <section id="manifesto-strip-section" class="relative py-20 sm:py-24 overflow-hidden">
+      <!-- Background Scrubbed Horizontal Photo Strip (ISZL 00:04 Style) -->
+      <div class="iszl-manifesto-bg-strip">
+        <div id="iszl-photo-rail" class="iszl-horizontal-strip-rail">
+          <!-- Photo 1 -->
+          <div class="iszl-strip-card">
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80" alt="Lab Rekayasa Perangkat Lunak PPLG">
+            <div class="iszl-strip-card-overlay">
+              <div>
+                <span class="text-[10px] uppercase font-bold text-stratford-gold-400 block tracking-wider">Teknologi PPLG</span>
+                <span class="text-xs font-bold leading-tight block">Lab Rekayasa Software &amp; Game</span>
+              </div>
+            </div>
+          </div>
+          <!-- Photo 2 -->
+          <div class="iszl-strip-card">
+            <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80" alt="Lab Jaringan Komputer &amp; Telekomunikasi TJKT">
+            <div class="iszl-strip-card-overlay">
+              <div>
+                <span class="text-[10px] uppercase font-bold text-stratford-gold-400 block tracking-wider">Infrastruktur TJKT</span>
+                <span class="text-xs font-bold leading-tight block">Fiber Optic, Cisco &amp; Server</span>
+              </div>
+            </div>
+          </div>
+          <!-- Photo 3 -->
+          <div class="iszl-strip-card">
+            <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&w=600&q=80" alt="Studio Desain Komunikasi Visual DKV">
+            <div class="iszl-strip-card-overlay">
+              <div>
+                <span class="text-[10px] uppercase font-bold text-stratford-gold-400 block tracking-wider">Kreatif DKV</span>
+                <span class="text-xs font-bold leading-tight block">Studio Fotografi &amp; Video Editing</span>
+              </div>
+            </div>
+          </div>
+          <!-- Photo 4 -->
+          <div class="iszl-strip-card">
+            <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=600&q=80" alt="Bank Mini &amp; Akuntansi Finansial AKL">
+            <div class="iszl-strip-card-overlay">
+              <div>
+                <span class="text-[10px] uppercase font-bold text-stratford-gold-400 block tracking-wider">Keuangan AKL</span>
+                <span class="text-xs font-bold leading-tight block">Bank Mini &amp; Praktik Finansial</span>
+              </div>
+            </div>
+          </div>
+          <!-- Photo 5 -->
+          <div class="iszl-strip-card">
+            <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=600&q=80" alt="Manajemen Perkantoran &amp; Protokoler MPLB">
+            <div class="iszl-strip-card-overlay">
+              <div>
+                <span class="text-[10px] uppercase font-bold text-stratford-gold-400 block tracking-wider">Corporate MPLB</span>
+                <span class="text-xs font-bold leading-tight block">Simulasi Kantor &amp; Protokoler</span>
+              </div>
+            </div>
+          </div>
+          <!-- Photo 6 -->
+          <div class="iszl-strip-card">
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80" alt="Green Campus &amp; Karakter SMKN 2 Guguak">
+            <div class="iszl-strip-card-overlay">
+              <div>
+                <span class="text-[10px] uppercase font-bold text-stratford-gold-400 block tracking-wider">Karakter &amp; Budaya</span>
+                <span class="text-xs font-bold leading-tight block">Green Campus 1,2 Ha Lima Puluh Kota</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+
+      <!-- Centered Community Manifesto Card -->
+      <div class="max-w-2xl mx-auto px-4 relative z-20">
+        <div class="iszl-manifesto-card text-center iszl-reveal">
+          <div class="text-5xl text-stratford-gold-400 font-serif leading-none mb-3">“</div>
+          <h3 class="text-2xl sm:text-3xl md:text-4xl font-bold font-serif text-white mb-4">
+            Kita semua adalah SMKN 2 Guguak
+          </h3>
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-xl mx-auto mb-8 font-light">
+            Kami adalah institusi pendidikan kejuruan negeri terdepan di Kabupaten Lima Puluh Kota yang berdedikasi menumbuhkan kebersamaan, menyediakan pendidikan vokasi komprehensif, dan memberdayakan siswa untuk menjadi pembelajar seumur hidup yang berakhlak mulia, berwawasan industri, dan siap berkarier secara global.
+          </p>
+          <a href="#about" class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-stratford-gold-500 hover:bg-stratford-gold-400 text-stratford-navy-950 font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-stratford-gold-500/25 transition-all hover:scale-105">
+            <span>Misi dan Visi Kami</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+    </section>
 
     <!-- ========================================================================
          5. STRATFORD EDITORIAL SECTION: ABOUT & LEADERSHIP WELCOME

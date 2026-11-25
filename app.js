@@ -713,11 +713,18 @@ function initISZLScrollEffects() {
   const floatingActions = document.getElementById('floating-scroll-actions');
   const scrollPercentageEl = document.getElementById('scroll-percentage');
   const backToTopBtn = document.getElementById('btn-back-to-top');
+  const heroTrack = document.getElementById('hero-pinned-track');
+  const heroMediaFrame = document.getElementById('hero-media-frame');
+  const heroOverlay = document.getElementById('hero-overlay');
   const heroBg = document.getElementById('hero-bg-img');
   const heroContent = document.getElementById('hero-content');
+  const heroGlassCard = document.getElementById('hero-editorial-glass-card');
   const heroScrollCue = document.getElementById('hero-scroll-cue');
+  const manifestoSection = document.getElementById('manifesto-strip-section');
   const photoRail = document.getElementById('iszl-photo-rail');
   const parallaxImages = document.querySelectorAll('.stratford-division-card img, .stratford-news-card img');
+
+  const easeInOutCubic = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
 
   // Unified visual feedback callback (ISZL Agency Standard)
   function onScrollUpdate(scrollY, progress, velocity) {
@@ -740,55 +747,84 @@ function initISZLScrollEffects() {
       }
     }
 
-    // 4. Hero Pinned Curtain & Scale Choreography with Dedicated Full Reveal & Delay Hold
-    const revealDistance = 320; // Phase 1: Scroll distance to smoothly bring bottom cards 100% full in view
-    const holdDistance = 620;   // Phase 2: THE DELAY - Cards stay 100% visible while scrubbing
-    const exitDistance = 460;   // Phase 3: Gentle fade & lift as white content card glides over
-    const totalHeroScroll = revealDistance + holdDistance + exitDistance;
+    // 4. ISZL Hero Shrink-to-Frame & Frosted Glass Editorial Card Choreography
+    const trackRange = heroTrack ? Math.max(1, heroTrack.offsetHeight - window.innerHeight) : 1200;
+    const heroProgress = Math.min(1, Math.max(0, scrollY / trackRange));
+    const isDesktop = window.innerWidth >= 768;
 
-    if (scrollY <= totalHeroScroll + window.innerHeight * 0.5) {
-      // Parallax Scale on Hero Background Image
-      if (heroBg) {
-        const bgProgress = Math.min(1, Math.max(0, scrollY / totalHeroScroll));
-        heroBg.style.transform = `scale(${1.1 - bgProgress * 0.1})`;
-      }
-
-      // Scroll Cue (Fades away early during initial scroll)
+    if (scrollY <= trackRange + window.innerHeight * 0.6) {
+      // Scroll Cue fades out early
       if (heroScrollCue) {
-        const cueProgress = Math.min(1, Math.max(0, scrollY / 140));
-        heroScrollCue.style.opacity = `${Math.max(0, 1 - cueProgress)}`;
+        const cueOpacity = Math.max(0, 1 - heroProgress / 0.14);
+        heroScrollCue.style.opacity = `${cueOpacity}`;
+        heroScrollCue.style.pointerEvents = cueOpacity > 0.1 ? 'auto' : 'none';
       }
 
-      // Hero Content Multi-Phase Choreography
+      // Hero Headline & Action Buttons lift and fade out cleanly
       if (heroContent) {
-        if (scrollY <= revealDistance) {
-          // --- PHASE 1: Smoothly lift content so bottom photo cards become 100% FULLY IN VIEW ---
-          const p1 = scrollY / revealDistance;
-          const easeOut = p1 * (2 - p1); // Smooth ease-out quad
-          const liftPx = easeOut * 150;
-          heroContent.style.transform = `translate3d(0, -${liftPx}px, 0)`;
-          heroContent.style.opacity = '1';
-        } else if (scrollY <= revealDistance + holdDistance) {
-          // --- PHASE 2: THE DELAY / EXPLORATION HOLD ---
-          // Bottom section is FULLY REVEALED. Opacity stays 100% solid with zero fading!
-          heroContent.style.transform = `translate3d(0, -150px, 0)`;
-          heroContent.style.opacity = '1';
+        const contentFade = Math.min(1, heroProgress / 0.32);
+        const contentEase = contentFade * (2 - contentFade);
+        heroContent.style.transform = `translate3d(0, -${contentEase * 75}px, 0)`;
+        const contentOpacity = Math.max(0, 1 - contentFade * 1.15);
+        heroContent.style.opacity = `${contentOpacity}`;
+        heroContent.style.pointerEvents = contentOpacity > 0.15 ? 'auto' : 'none';
+      }
+
+      // Hero Background Image Frame shrinks into centered Swiss editorial frame
+      if (heroMediaFrame) {
+        const shrinkRaw = Math.min(1, Math.max(0, (heroProgress - 0.10) / 0.56));
+        const s = easeInOutCubic(shrinkRaw);
+
+        if (isDesktop) {
+          const top = s * 15;
+          const right = s * 28;
+          const bottom = s * 15;
+          const left = s * 12;
+          const radius = s * 16;
+          heroMediaFrame.style.clipPath = `inset(${top}% ${right}% ${bottom}% ${left}% round ${radius}px)`;
         } else {
-          // --- PHASE 3: EXIT TRANSITION ---
-          // After the delay, content gently fades out as white curtain rises
-          const p3 = Math.min(1, (scrollY - revealDistance - holdDistance) / exitDistance);
-          const exitLift = 150 + p3 * 60;
-          heroContent.style.transform = `translate3d(0, -${exitLift}px, 0)`;
-          heroContent.style.opacity = `${Math.max(0, 1 - p3 * 1.3)}`;
+          const top = s * 12;
+          const right = s * 6;
+          const bottom = s * 28;
+          const left = s * 6;
+          const radius = s * 14;
+          heroMediaFrame.style.clipPath = `inset(${top}% ${right}% ${bottom}% ${left}% round ${radius}px)`;
+        }
+
+        if (heroOverlay) {
+          heroOverlay.style.opacity = `${Math.max(0.18, 1 - s * 0.82)}`;
+        }
+      }
+
+      // Subtle scale-down on background photo inside frame
+      if (heroBg) {
+        heroBg.style.transform = `scale(${1.06 - heroProgress * 0.06})`;
+      }
+
+      // Frosted Glass Editorial Card slides in beside the shrunk frame
+      if (heroGlassCard) {
+        const cardRaw = Math.min(1, Math.max(0, (heroProgress - 0.40) / 0.36));
+        const g = 1 - Math.pow(1 - cardRaw, 3);
+        heroGlassCard.style.opacity = `${g}`;
+        heroGlassCard.style.pointerEvents = g > 0.35 ? 'auto' : 'none';
+
+        if (isDesktop) {
+          heroGlassCard.style.transform = `translate3d(${(1 - g) * 44}px, -50%, 0)`;
+        } else {
+          heroGlassCard.style.transform = `translate3d(0, ${(1 - g) * 24}px, 0)`;
         }
       }
     }
 
-    // 5. Hero Horizontal Photo Rail Scrubbing (starts smoothly as bottom cards reveal and continues through hold)
-    if (photoRail) {
-      const scrubScroll = Math.max(0, scrollY - 60);
-      const railOffset = scrubScroll * 0.72;
-      photoRail.style.transform = `translate3d(-${railOffset}px, 0, 0)`;
+    // 5. Manifesto Horizontal Photo Rail Scrubbing (ISZL 00:04 Style)
+    if (photoRail && manifestoSection) {
+      const rect = manifestoSection.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        const totalTravel = window.innerHeight + rect.height;
+        const mProgress = Math.min(1, Math.max(0, (window.innerHeight - rect.top) / totalTravel));
+        const railOffset = mProgress * 360;
+        photoRail.style.transform = `translate3d(-${railOffset}px, 0, 0)`;
+      }
     }
 
     // 6. Parallax scrubbing on cards
