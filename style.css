@@ -1,0 +1,1240 @@
+/* ==========================================================================
+   SMK NEGERI 2 KEC. GUGUAK - STRATFORD ACADEMY SIGNATURE THEME
+   Inspired by: https://www.stratford.org/
+   Incorporating:
+   - Stratford Navy, Slate & Gold Institutional Palette
+   - Signature "Inquire • Visit • Apply" Action Funnel
+   - Full-bleed Cinematic Hero with Academic Serif Typography
+   - Fast Facts / At A Glance Metric Grid
+   - Academic Divisions / Program Explorer
+   - Campus Stories & Calendar Editorial Layout
+   - Westbourne Opening Logo Animation & ISZL Kinetic Motion
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Cinzel:wght@600;700;800&display=swap');
+
+:root {
+  --color-logo-green-primary: #00923F; /* Exact Official Logo Emerald Green */
+  --color-logo-green-dark: #005a27;    /* Deep Forest Shadow */
+  --color-logo-green-darker: #022617;  /* Deepest Forest Green Canvas */
+  --color-logo-green-light: #00b04c;   /* Vibrant Glowing Emerald */
+  --color-logo-gold-primary: #D8AD0F;  /* Exact Official Logo Metallic Gold */
+  --color-logo-gold-light: #f5c829;    /* Bright Minang Gold */
+  --color-logo-gold-dark: #b88f05;     /* Antique Minang Gold */
+
+  --color-stratford-navy-950: #022617; /* Deepest Logo Forest Green */
+  --color-stratford-navy-900: #003d1c; /* Deep Logo Green */
+  --color-stratford-navy-800: #005a27; /* Rich Logo Green */
+  --color-stratford-navy-700: #007734; /* Forest Green Accent */
+  --color-stratford-gold-500: #D8AD0F; /* Official Logo Gold */
+  --color-stratford-gold-400: #f5c829;
+  --color-stratford-gold-300: #fde047;
+  --color-forest-primary: #00923F;
+  --color-forest-accent: #00b04c;
+  --color-surface-light: #f4fbf7;
+  --color-surface-pure: #ffffff;
+  --font-serif-header: 'Playfair Display', Georgia, serif;
+  --font-display-crest: 'Cinzel', serif;
+  --font-sans-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --transition-stratford: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --shadow-stratford-card: 0 10px 30px -5px rgba(0, 146, 63, 0.12);
+  --shadow-stratford-elevated: 0 20px 45px -10px rgba(0, 146, 63, 0.2);
+}
+
+/* Base Styles */
+html {
+  scroll-behavior: auto !important;
+  font-family: var(--font-sans-body);
+  color: #1e293b;
+  background-color: var(--color-surface-light);
+}
+
+body {
+  overflow-x: hidden;
+  position: relative;
+}
+
+.font-serif-title {
+  font-family: var(--font-serif-header);
+}
+
+.font-crest {
+  font-family: var(--font-display-crest);
+}
+
+/* ==========================================================================
+   WESTBOURNE GRAMMAR STYLE: OPENING LOGO INTRO ANIMATION
+   ========================================================================== */
+#westbourne-intro-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: radial-gradient(circle at center, #0a3d2b 0%, #041f15 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  overflow: hidden;
+  pointer-events: auto;
+  transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.8s ease;
+}
+
+#westbourne-intro-overlay.hide-intro {
+  transform: translateY(-100%);
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   LOGO ASSEMBLY ANIMATION ("EFEK DIRAKIT") - PIECE-BY-PIECE CONSTRUCTION
+   ========================================================================== */
+
+/* 1. HUD Blueprint Calibration Rings & Crosshairs */
+.assembly-hud-ring {
+  position: absolute;
+  border-radius: 9999px;
+  pointer-events: none;
+}
+
+.ring-outer {
+  width: 240px;
+  height: 240px;
+  border: 1.5px dashed rgba(216, 173, 15, 0.55);
+  box-shadow: 0 0 15px rgba(216, 173, 15, 0.2);
+  animation: hudSpinClockwise 10s linear infinite;
+}
+
+.ring-inner {
+  width: 195px;
+  height: 195px;
+  border: 1.5px solid rgba(0, 146, 63, 0.45);
+  border-top-color: #D8AD0F;
+  border-bottom-color: #00b04c;
+  box-shadow: 0 0 12px rgba(0, 146, 63, 0.2);
+  animation: hudSpinCounter 7s linear infinite;
+}
+
+@keyframes hudSpinClockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes hudSpinCounter {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+.assembly-crosshair {
+  position: absolute;
+  background: rgba(216, 173, 15, 0.35);
+  pointer-events: none;
+}
+
+.crosshair-h {
+  width: 270px;
+  height: 1px;
+}
+
+.crosshair-v {
+  width: 1px;
+  height: 270px;
+}
+
+.assembly-pulse-glow {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(0, 146, 63, 0.55) 0%, rgba(216, 173, 15, 0.25) 60%, transparent 100%);
+  animation: assemblyPulse 2.4s ease-in-out infinite;
+}
+
+@keyframes assemblyPulse {
+  0%, 100% { transform: scale(0.92); opacity: 0.5; }
+  50% { transform: scale(1.18); opacity: 0.85; filter: drop-shadow(0 0 25px #00923F); }
+}
+
+/* Energy Shockwave Ring on Final Assembly Lock */
+.assembly-lock-ring {
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  border-radius: 9999px;
+  border: 2px solid rgba(216, 173, 15, 0.95);
+  opacity: 0;
+  pointer-events: none;
+  animation: lockShockwave 0.85s ease-out 1.45s forwards;
+}
+
+@keyframes lockShockwave {
+  0% {
+    transform: scale(0.65);
+    opacity: 0.95;
+    border-color: rgba(216, 173, 15, 0.95);
+  }
+  100% {
+    transform: scale(2.7);
+    opacity: 0;
+    border-color: rgba(0, 146, 63, 0);
+  }
+}
+
+/* 2. Assembly Pieces (Optimized 3D Hardware-Accelerated Construction) */
+.assembly-logo-stage {
+  position: relative;
+  perspective: 900px;
+}
+
+.assembly-piece {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  filter: drop-shadow(0 0 8px rgba(216, 173, 15, 0.5));
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* Piece 1: Top-Left Octagon Star Wing */
+.piece-top-left {
+  clip-path: polygon(0% 0%, 50% 0%, 50% 50%, 0% 50%);
+  animation: assembleTopLeft 0.75s cubic-bezier(0.19, 1, 0.22, 1) 0.15s forwards;
+  opacity: 0;
+}
+@keyframes assembleTopLeft {
+  0% {
+    opacity: 0;
+    transform: translate3d(-85px, -85px, 80px) rotate(-30deg) scale(0.65);
+  }
+  75% {
+    opacity: 1;
+    transform: translate3d(3px, 3px, -8px) rotate(3deg) scale(1.03);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+}
+
+/* Piece 2: Top-Right Octagon Star Wing */
+.piece-top-right {
+  clip-path: polygon(50% 0%, 100% 0%, 100% 50%, 50% 50%);
+  animation: assembleTopRight 0.75s cubic-bezier(0.19, 1, 0.22, 1) 0.25s forwards;
+  opacity: 0;
+}
+@keyframes assembleTopRight {
+  0% {
+    opacity: 0;
+    transform: translate3d(85px, -85px, 80px) rotate(30deg) scale(0.65);
+  }
+  75% {
+    opacity: 1;
+    transform: translate3d(-3px, 3px, -8px) rotate(-3deg) scale(1.03);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+}
+
+/* Piece 3: Bottom-Left Octagon Star Wing */
+.piece-bottom-left {
+  clip-path: polygon(0% 50%, 50% 50%, 50% 100%, 0% 100%);
+  animation: assembleBottomLeft 0.75s cubic-bezier(0.19, 1, 0.22, 1) 0.35s forwards;
+  opacity: 0;
+}
+@keyframes assembleBottomLeft {
+  0% {
+    opacity: 0;
+    transform: translate3d(-85px, 85px, 80px) rotate(30deg) scale(0.65);
+  }
+  75% {
+    opacity: 1;
+    transform: translate3d(3px, -3px, -8px) rotate(-3deg) scale(1.03);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+}
+
+/* Piece 4: Bottom-Right Octagon Star Wing */
+.piece-bottom-right {
+  clip-path: polygon(50% 50%, 100% 50%, 100% 100%, 50% 100%);
+  animation: assembleBottomRight 0.75s cubic-bezier(0.19, 1, 0.22, 1) 0.45s forwards;
+  opacity: 0;
+}
+@keyframes assembleBottomRight {
+  0% {
+    opacity: 0;
+    transform: translate3d(85px, 85px, 80px) rotate(-30deg) scale(0.65);
+  }
+  75% {
+    opacity: 1;
+    transform: translate3d(-3px, -3px, -8px) rotate(3deg) scale(1.03);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+}
+
+/* Piece 5: Upper Ribbon Banner ("SMKN 2 GUGUAK") */
+.piece-ribbon-top {
+  clip-path: polygon(15% 15%, 85% 15%, 85% 38%, 15% 38%);
+  animation: assembleRibbonTop 0.7s cubic-bezier(0.19, 1, 0.22, 1) 0.60s forwards;
+  opacity: 0;
+}
+@keyframes assembleRibbonTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px) scale(0.85);
+    filter: brightness(2) drop-shadow(0 0 16px #D8AD0F);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: drop-shadow(0 0 6px rgba(216, 173, 15, 0.6));
+  }
+}
+
+/* Piece 6: Lower Ribbon Banner ("KAB. LIMA PULUH KOTA") */
+.piece-ribbon-bottom {
+  clip-path: polygon(15% 62%, 85% 62%, 85% 85%, 15% 85%);
+  animation: assembleRibbonBottom 0.7s cubic-bezier(0.19, 1, 0.22, 1) 0.72s forwards;
+  opacity: 0;
+}
+@keyframes assembleRibbonBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.85);
+    filter: brightness(2) drop-shadow(0 0 16px #D8AD0F);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: drop-shadow(0 0 6px rgba(216, 173, 15, 0.6));
+  }
+}
+
+/* Piece 7: Center White Dial & Tech Antenna Core */
+.piece-core {
+  clip-path: circle(28% at 50% 50%);
+  animation: assembleCore 0.75s cubic-bezier(0.19, 1, 0.22, 1) 0.88s forwards;
+  opacity: 0;
+}
+@keyframes assembleCore {
+  0% {
+    opacity: 0;
+    transform: scale(2.2) rotate(140deg);
+    filter: blur(5px) brightness(2.2);
+  }
+  65% {
+    opacity: 1;
+    transform: scale(0.94) rotate(-6deg);
+    filter: blur(0px) brightness(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+    filter: drop-shadow(0 0 14px rgba(0, 146, 63, 0.85));
+  }
+}
+
+/* 3. Final Unified Assembled Logo with Precision Laser Sweep */
+.assembly-final-wrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  animation: finalLogoReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) 1.45s forwards;
+}
+
+@keyframes finalLogoReveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 45px #00b04c) drop-shadow(0 0 30px #D8AD0F);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: drop-shadow(0 0 35px rgba(216, 173, 15, 0.75)) drop-shadow(0 0 15px rgba(0, 146, 63, 0.5));
+  }
+}
+
+.assembly-final-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Diagonally Sweeping Laser / Specular Welding Shimmer */
+.assembly-shimmer-sweep {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 15%,
+    rgba(255, 255, 255, 0.95) 45%,
+    rgba(216, 173, 15, 0.95) 50%,
+    rgba(255, 255, 255, 0.95) 55%,
+    transparent 85%
+  );
+  transform: translateX(-160%) skewX(-25deg);
+  opacity: 0;
+  pointer-events: none;
+  animation: shimmerSweep 0.95s ease-out 1.55s forwards;
+}
+
+@keyframes shimmerSweep {
+  0% {
+    opacity: 0;
+    transform: translateX(-160%) skewX(-25deg);
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(180%) skewX(-25deg);
+  }
+}
+
+/* Original Smooth Reveal Animation (Tersedia untuk beralih instan) */
+.logo-intro-reveal {
+  animation: logoIntroScale 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes logoIntroScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.7) translateY(12px);
+    filter: drop-shadow(0 0 10px rgba(216, 173, 15, 0.2)) brightness(0.8);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.05) translateY(-2px);
+    filter: drop-shadow(0 0 45px rgba(216, 173, 15, 0.75)) drop-shadow(0 0 20px rgba(0, 146, 63, 0.6)) brightness(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: drop-shadow(0 0 30px rgba(216, 173, 15, 0.5)) drop-shadow(0 0 15px rgba(0, 146, 63, 0.4)) brightness(1);
+  }
+}
+
+.fade-in-delayed {
+  opacity: 0;
+  transform: translateY(15px);
+  animation: revealUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.delay-1 { animation-delay: 0.5s; }
+.delay-2 { animation-delay: 1.0s; }
+.delay-3 { animation-delay: 1.5s; }
+
+@keyframes revealUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.intro-progress-bar {
+  width: 220px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.intro-progress-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #059669, #dca626);
+  box-shadow: 0 0 12px rgba(220, 166, 38, 0.8);
+  animation: progressFill 2.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes progressFill {
+  0% { width: 0%; }
+  50% { width: 65%; }
+  100% { width: 100%; }
+}
+
+/* ==========================================================================
+   STRATFORD SIGNATURE NAVIGATION & HEADER
+   ========================================================================== */
+.stratford-utility-bar {
+  background-color: var(--color-stratford-navy-950);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.775rem;
+}
+
+.stratford-action-btn {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  padding: 0.4rem 1rem;
+  border-radius: 4px;
+  transition: var(--transition-stratford);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  white-space: nowrap;
+}
+
+.stratford-btn-inquire {
+  background-color: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+.stratford-btn-inquire:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: #ffffff;
+}
+
+.stratford-btn-visit {
+  background-color: rgba(220, 166, 38, 0.15);
+  color: var(--color-stratford-gold-300);
+  border: 1px solid var(--color-stratford-gold-400);
+}
+.stratford-btn-visit:hover {
+  background-color: var(--color-stratford-gold-400);
+  color: var(--color-stratford-navy-950);
+}
+
+.stratford-btn-apply {
+  background: linear-gradient(135deg, #c69214 0%, #e2b43b 100%);
+  color: #051021;
+  border: 1px solid #f1bf48;
+  box-shadow: 0 4px 12px rgba(220, 166, 38, 0.3);
+}
+.stratford-btn-apply:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+/* Main Nav Bar */
+.stratford-main-nav {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(10, 28, 56, 0.08);
+  box-shadow: 0 4px 20px -2px rgba(10, 28, 56, 0.06);
+  transition: var(--transition-stratford);
+}
+
+.stratford-main-nav.scrolled {
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 10px 30px -5px rgba(10, 28, 56, 0.12);
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.stratford-nav-link {
+  font-family: var(--font-sans-body);
+  font-weight: 700;
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-stratford-navy-900);
+  padding: 0.5rem 0.75rem;
+  position: relative;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.stratford-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-stratford-gold-500);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), left 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stratford-nav-link:hover {
+  color: var(--color-stratford-navy-800);
+}
+
+.stratford-nav-link:hover::after {
+  width: 80%;
+  left: 10%;
+}
+
+/* ==========================================================================
+   STRATFORD HERO SECTION & DOCKED ACTION GATEWAY
+   ========================================================================== */
+.stratford-hero-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(2, 38, 23, 0.78) 0%,
+    rgba(0, 90, 39, 0.52) 50%,
+    rgba(2, 38, 23, 0.95) 100%
+  );
+}
+
+.stratford-gateway-bar {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 20px 50px -10px rgba(4, 31, 21, 0.18);
+  border: 1px solid rgba(4, 31, 21, 0.08);
+}
+
+.stratford-gateway-item {
+  padding: 1.5rem 1.75rem;
+  transition: var(--transition-stratford);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.stratford-gateway-item:not(:last-child) {
+  border-right: 1px solid rgba(10, 28, 56, 0.08);
+}
+
+.stratford-gateway-item:hover {
+  background-color: #f8fafc;
+  transform: translateY(-3px);
+}
+
+.stratford-gateway-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3.5px;
+  background: linear-gradient(90deg, #047857 0%, #c69214 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.stratford-gateway-item:hover::before {
+  opacity: 1;
+}
+
+/* ==========================================================================
+   STRATFORD FAST FACTS & STATISTICS BAR
+   ========================================================================== */
+.stratford-fact-card {
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 1.5rem 1rem;
+}
+@media (max-width: 1024px) {
+  .stratford-fact-card {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+}
+
+/* ==========================================================================
+   STRATFORD ACADEMIC DIVISIONS GRID (PROGRAM EXPLORER)
+   ========================================================================== */
+.stratford-division-card {
+  position: relative;
+  height: 380px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow-stratford-card);
+  transition: var(--transition-stratford);
+}
+
+.stratford-division-card img {
+  width: 100%;
+  height: 100%;
+  object-cover: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stratford-division-card:hover img {
+  transform: scale(1.08);
+}
+
+.stratford-division-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(4, 31, 21, 0.1) 0%,
+    rgba(4, 31, 21, 0.65) 45%,
+    rgba(4, 31, 21, 0.96) 100%
+  );
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: #ffffff;
+}
+
+.stratford-division-card:hover {
+  box-shadow: var(--shadow-stratford-elevated);
+  transform: translateY(-6px);
+}
+
+/* ==========================================================================
+   STRATFORD EDITORIAL STORIES & CALENDAR
+   ========================================================================== */
+.stratford-news-card {
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(10, 28, 56, 0.08);
+  box-shadow: var(--shadow-stratford-card);
+  transition: var(--transition-stratford);
+}
+
+.stratford-news-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-stratford-elevated);
+  border-color: var(--color-stratford-gold-500);
+}
+
+.stratford-date-badge {
+  background: linear-gradient(135deg, #064e3b 0%, #047857 100%);
+  color: #ffffff;
+  text-align: center;
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  min-width: 65px;
+  box-shadow: 0 4px 10px rgba(4, 120, 87, 0.25);
+  border: 1px solid rgba(220, 166, 38, 0.35);
+}
+
+/* Modal styles */
+.modal-overlay {
+  background: rgba(4, 31, 21, 0.85);
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  overscroll-behavior: contain;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-container {
+  transform: scale(0.95) translateY(20px);
+  opacity: 0;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  overscroll-behavior: contain;
+  touch-action: pan-y;
+}
+
+.modal-overlay.active .modal-container {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+/* ==========================================================================
+   CUSTOM SCROLLBAR STYLING ("GAYA SCROLL") - SMKN 2 GUGUAK SIGNATURE
+   ========================================================================== */
+
+/* Universal Firefox Support */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #00923F #f0fdf4;
+}
+
+/* Global Webkit Scrollbar (Window & Main Viewport) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f0fdf4;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00923F 0%, #007a34 100%);
+  border-radius: 9999px;
+  border: 2px solid #f0fdf4;
+  transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #D8AD0F 0%, #c69214 100%);
+  box-shadow: 0 0 10px rgba(216, 173, 15, 0.45);
+}
+
+/* Explicit Modal Container & Drawer Scrollbar (Always crisp, sleek & visible) */
+.modal-container,
+#mobile-drawer,
+#search-modal {
+  scrollbar-width: thin !important;
+  scrollbar-color: #00923F #f8fafc !important;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain !important;
+  touch-action: pan-y !important;
+}
+
+.modal-container::-webkit-scrollbar,
+#mobile-drawer::-webkit-scrollbar,
+#search-modal::-webkit-scrollbar {
+  width: 8px !important;
+  height: 8px !important;
+  display: block !important;
+}
+
+.modal-container::-webkit-scrollbar-track,
+#mobile-drawer::-webkit-scrollbar-track,
+#search-modal::-webkit-scrollbar-track {
+  background: #f1f5f9 !important;
+  border-radius: 9999px !important;
+  margin: 8px 0 !important;
+}
+
+.modal-container::-webkit-scrollbar-thumb,
+#mobile-drawer::-webkit-scrollbar-thumb,
+#search-modal::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00923F 0%, #007a34 100%) !important;
+  border-radius: 9999px !important;
+  border: 1.5px solid #f1f5f9 !important;
+}
+
+.modal-container::-webkit-scrollbar-thumb:hover,
+#mobile-drawer::-webkit-scrollbar-thumb:hover,
+#search-modal::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #D8AD0F 0%, #c69214 100%) !important;
+}
+
+/* ==========================================================================
+   ISZL SWISS STYLE: LENIS SMOOTH SCROLL & FLUID MOTION
+   ========================================================================== */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* ISZL Scroll Progress Line */
+#scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, #059669 0%, #dca626 50%, #f1bf48 100%);
+  box-shadow: 0 0 10px rgba(220, 166, 38, 0.7);
+  z-index: 10000;
+  transition: width 0.1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ISZL Scroll Reveals */
+.iszl-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.iszl-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.iszl-stagger-item {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.iszl-stagger-item.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Floating Back to Top indicator */
+#floating-scroll-actions {
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#floating-scroll-actions.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* Hero Parallax Media */
+.hero-parallax-bg {
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+/* ISZL Swiss Masked Line Typography */
+.iszl-mask-text {
+  display: block;
+  transform: translateY(115%);
+  opacity: 0;
+  transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
+  will-change: transform, opacity;
+}
+
+.iszl-mask-text.revealed {
+  transform: translateY(0%);
+  opacity: 1;
+}
+
+/* ISZL Pinned Curtain Track */
+#hero-pinned-track {
+  position: relative;
+  height: 240vh;
+}
+
+.hero-sticky-stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  min-height: 680px;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: clamp(80px, 11vh, 120px);
+  padding-bottom: 1.5rem;
+}
+
+/* Elevate sheet over pinned stage */
+#main-content-card {
+  position: relative;
+  z-index: 30;
+  background-color: #f8fafc;
+  box-shadow: 0 -35px 80px -15px rgba(4, 31, 21, 0.55);
+}
+
+/* ISZL Interactive Stacking Pillar Cards */
+.iszl-stack-card {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+  will-change: transform;
+}
+
+/* ==========================================================================
+   ISZL SWISS AGENCY SIGNATURE HERO & MOSAIC COMPONENTS
+   ========================================================================== */
+
+/* ==========================================================================
+   STRATFORD ACADEMY SIGNATURE TWO-TIER HEADER & NAVIGATION
+   ========================================================================== */
+#site-header {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.92) 70%, rgba(255, 255, 255, 0) 100%);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 50;
+}
+
+#site-header.scrolled {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 4px 20px -2px rgba(4, 31, 21, 0.1);
+  border-bottom: 1px solid rgba(4, 106, 56, 0.15);
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+}
+
+/* Backward compatibility for #iszl-site-header */
+#iszl-site-header {
+  display: none !important;
+}
+
+/* ==========================================================================
+   STRATFORD SIGNATURE FLOATING SIDE DOCK (Right Screen Edge)
+   - Dynamic: Horizontal at top of page, morphs into Vertical tabs on scroll
+   - Styled with SMKN 2 Guguak Official Logo Green (#00923F) & Gold (#D8AD0F)
+   ========================================================================== */
+#stratford-side-dock {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 45;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  filter: drop-shadow(-2px 4px 14px rgba(0, 146, 63, 0.28));
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Horizontal Mode (At Top / Hero Section) */
+.stratford-dock-tab {
+  width: 220px;
+  height: 52px;
+  padding: 0 1.5rem;
+  background-color: #00923F; /* Official Logo Emerald Green */
+  color: #ffffff; /* Crisp white for maximum contrast & authority */
+  font-family: var(--font-sans-body, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+  font-weight: 800;
+  font-size: 0.825rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border: 1px solid rgba(216, 173, 15, 0.45); /* Logo Gold trim */
+  border-right: none;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: -4px 5px 12px rgba(0, 146, 63, 0.32);
+  transform: translateX(0);
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.25s ease,
+              color 0.25s ease,
+              transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s ease;
+}
+
+.stratford-dock-tab:hover {
+  background-color: #00b04c; /* Lighter glowing emerald */
+  color: #ffffff;
+  border-color: #D8AD0F;
+  transform: translateX(-10px);
+  box-shadow: -6px 8px 24px rgba(0, 146, 63, 0.48), 0 0 15px rgba(216, 173, 15, 0.35);
+}
+
+.stratford-dock-tab .dock-tab-label {
+  display: block;
+  white-space: nowrap;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Vertical Mode (When Page is Scrolled past 150px) */
+#stratford-side-dock.dock-scrolled {
+  gap: 3px;
+  flex-direction: column-reverse; /* Matches Stratford's bottom-to-top reading order */
+}
+
+#stratford-side-dock.dock-scrolled .stratford-dock-tab {
+  width: 44px;
+  height: 138px;
+  padding: 0.5rem 0;
+  background-color: #00923F;
+  color: #ffffff;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border: 1px solid rgba(216, 173, 15, 0.45);
+  border-right: none;
+  box-shadow: -4px 6px 14px rgba(0, 146, 63, 0.35);
+}
+
+#stratford-side-dock.dock-scrolled .stratford-dock-tab:hover {
+  background-color: #00b04c;
+  color: #ffffff;
+  border-color: #D8AD0F;
+  transform: translateX(-12px);
+  box-shadow: -6px 8px 24px rgba(0, 146, 63, 0.52), 0 0 15px rgba(216, 173, 15, 0.4);
+}
+
+#stratford-side-dock.dock-scrolled .dock-tab-label {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  text-orientation: mixed;
+  font-size: 0.775rem;
+  letter-spacing: 0.1em;
+  font-weight: 800;
+  line-height: 1;
+}
+
+/* Mobile Navigation Drawer Full Viewport Overlay */
+#mobile-drawer {
+  z-index: 100 !important;
+  position: fixed !important;
+  inset: 0 !important;
+  pointer-events: auto;
+}
+
+#mobile-drawer:not(.hidden) {
+  display: flex !important;
+}
+
+/* 2. Hero Horizontal Photo Strip (Scroll-Driven Scrubbing) */
+.iszl-horizontal-strip-wrapper {
+  width: 100%;
+  overflow: hidden;
+  padding: 12px 0 20px 0;
+  position: relative;
+  z-index: 15;
+}
+
+.iszl-horizontal-strip-rail {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  will-change: transform;
+  transition: transform 0.12s linear;
+  padding-left: 5vw;
+}
+
+.iszl-strip-card {
+  width: 280px;
+  height: 190px;
+  border-radius: 6px;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 16px 36px rgba(4, 31, 21, 0.35);
+  position: relative;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.iszl-strip-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: rgba(220, 166, 38, 0.7);
+}
+
+.iszl-strip-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.iszl-strip-card:hover img {
+  transform: scale(1.06);
+}
+
+.iszl-strip-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(4, 31, 21, 0.9) 100%);
+  display: flex;
+  align-items: flex-end;
+  padding: 14px;
+  color: #ffffff;
+}
+
+/* 3. Centered Community Manifesto Card ("Kita Semua adalah SMKN 2 Guguak") */
+.iszl-manifesto-card {
+  background: linear-gradient(135deg, #063825 0%, #041f15 100%);
+  color: #ffffff;
+  border-radius: 16px;
+  padding: 44px 36px;
+  box-shadow: 0 25px 60px rgba(4, 31, 21, 0.5);
+  position: relative;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  border-top: 4px solid #059669;
+}
+
+/* 4. Giant Circular Stat Badges (Harmonized with SMKN 2 Guguak Brand Identity) */
+.iszl-circle-stat-green {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  padding: 24px;
+  box-shadow: 0 20px 45px rgba(4, 120, 87, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.iszl-circle-stat-blue {
+  background: linear-gradient(135deg, #f1bf48 0%, #c69214 100%);
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #051021;
+  padding: 24px;
+  box-shadow: 0 20px 45px rgba(198, 146, 20, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.iszl-circle-stat-red {
+  background: linear-gradient(135deg, #065f46 0%, #064e3b 100%);
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  padding: 24px;
+  box-shadow: 0 20px 45px rgba(6, 78, 59, 0.45);
+  border: 2px solid rgba(220, 166, 38, 0.35);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.iszl-circle-stat-green:hover,
+.iszl-circle-stat-blue:hover,
+.iszl-circle-stat-red:hover {
+  transform: scale(1.05);
+}
+
+/* 5. Circular Image Badge with Rotating Badge Text */
+.iszl-circular-photo-badge {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 4px solid #ffffff;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  position: relative;
+}
+
+/* 6. Curved SVG Section Masking */
+.iszl-curved-divider-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.iszl-curved-divider-bottom svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 56px;
+}

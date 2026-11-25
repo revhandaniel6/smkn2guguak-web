@@ -1,0 +1,1565 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMKN 2 Kec. Guguak | Where Excellence Takes Flight</title>
+  <meta name="description" content="Website Resmi SMK Negeri 2 Guguak, Kabupaten Lima Puluh Kota, Sumatera Barat. Sekolah Menengah Kejuruan Berbasis Teknologi Informasi dan Bisnis Manajemen.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo.png">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            stratford: {
+              navy: {
+                950: '#022617', // Deepest Logo Forest
+                900: '#003d1c', // Deep Logo Green
+                800: '#005a27', // Rich Logo Green
+                700: '#007734'  // Logo Green Accent
+              },
+              gold: {
+                500: '#D8AD0F', // Official Logo Metallic Gold
+                400: '#f5c829', // Bright Minang Gold
+                300: '#fde047',
+                100: '#fef3c7'
+              },
+              forest: {
+                950: '#022617',
+                900: '#003d1c',
+                800: '#005a27',
+                700: '#007734',
+                600: '#00923F', // Official Logo Emerald Green Primary
+                500: '#00b04c', // Vibrant Glowing Emerald
+                100: '#d1fae5'
+              }
+            }
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            crest: ['"Cinzel"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons (Local Bundle) -->
+  <script src="lucide.min.js"></script>
+
+  <!-- Custom Stratford Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-emerald-800 selection:text-white">
+
+  <!-- ========================================================================
+       ISZL SIGNATURE: SCROLL PROGRESS BAR & FLOATING SCROLL CONTROL
+       ======================================================================== -->
+  <div id="scroll-progress-bar"></div>
+
+  <!-- Floating Scroll Indicator & Back to Top -->
+  <div id="floating-scroll-actions" class="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-2.5 opacity-0 pointer-events-none transition-all duration-300 translate-y-3">
+    <button id="btn-back-to-top" class="px-3.5 py-2 rounded-full bg-[#00923F] text-white hover:bg-[#00b04c] border border-[#D8AD0F]/50 shadow-xl shadow-[#00923F]/30 backdrop-blur-md flex items-center gap-2 text-xs font-bold tracking-wider uppercase transition-transform hover:scale-105" title="Kembali ke atas">
+      <i data-lucide="arrow-up" class="w-3.5 h-3.5 text-stratford-gold-400"></i>
+      <span id="scroll-percentage" class="font-mono text-[11px] text-stratford-gold-300">0%</span>
+    </button>
+  </div>
+
+  <!-- ========================================================================
+       1. LOGO ASSEMBLY INTRO ANIMATION ("EFEK DIRAKIT" - OPTIMIZED)
+       - Presisi Rata Tengah (Dead Center), Pacing Sinematik & Efek Magnetik
+       ======================================================================== -->
+  <div id="westbourne-intro-overlay" role="dialog" aria-modal="true" aria-label="Intro SMKN 2 Guguak">
+    <!-- Ambient Radiance Background -->
+    <div class="absolute w-[560px] h-[560px] rounded-full bg-[#00923F]/25 blur-[140px] pointer-events-none"></div>
+    <div class="absolute w-[420px] h-[420px] rounded-full bg-[#D8AD0F]/20 blur-[110px] pointer-events-none"></div>
+
+    <div class="relative z-10 flex items-center justify-center text-center m-0 p-0">
+      
+      <!-- Assembly Stage Container (Presisi Dead-Center) -->
+      <div class="relative w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 flex items-center justify-center m-0 p-0">
+        
+        <!-- Blueprint HUD & Rotating Assembly Calibration Rings -->
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div class="assembly-hud-ring ring-outer"></div>
+          <div class="assembly-hud-ring ring-inner"></div>
+          <div class="assembly-crosshair crosshair-h"></div>
+          <div class="assembly-crosshair crosshair-v"></div>
+          <div class="assembly-pulse-glow"></div>
+          <div class="assembly-lock-ring"></div>
+        </div>
+
+        <!-- Exploded Logo Assembly Pieces (Dirakit Presisi 3D) -->
+        <div class="relative w-44 h-44 sm:w-52 sm:h-52 md:w-56 md:h-56 assembly-logo-stage">
+          
+          <!-- Piece 1: Top-Left Octagon Star Wing -->
+          <img src="assets/logo.png" alt="Bagian Kiri Atas" class="assembly-piece piece-top-left" />
+
+          <!-- Piece 2: Top-Right Octagon Star Wing -->
+          <img src="assets/logo.png" alt="Bagian Kanan Atas" class="assembly-piece piece-top-right" />
+
+          <!-- Piece 3: Bottom-Left Octagon Star Wing -->
+          <img src="assets/logo.png" alt="Bagian Kiri Bawah" class="assembly-piece piece-bottom-left" />
+
+          <!-- Piece 4: Bottom-Right Octagon Star Wing -->
+          <img src="assets/logo.png" alt="Bagian Kanan Bawah" class="assembly-piece piece-bottom-right" />
+
+          <!-- Piece 5: Top Ribbon Banner ("SMKN 2 GUGUAK") -->
+          <img src="assets/logo.png" alt="Pita Atas" class="assembly-piece piece-ribbon-top" />
+
+          <!-- Piece 6: Bottom Ribbon Banner ("KAB. LIMA PULUH KOTA") -->
+          <img src="assets/logo.png" alt="Pita Bawah" class="assembly-piece piece-ribbon-bottom" />
+
+          <!-- Piece 7: Center White Dial & Tech Antenna Core -->
+          <img src="assets/logo.png" alt="Inti Lambang" class="assembly-piece piece-core" />
+
+          <!-- Final Assembled Complete Logo with Shimmer Sweep -->
+          <div class="assembly-final-wrapper">
+            <img 
+              src="assets/logo.png" 
+              alt="Logo Resmi SMKN 2 Guguak" 
+              class="assembly-final-logo drop-shadow-[0_0_40px_rgba(216,173,15,0.7)] drop-shadow-[0_0_15px_rgba(0,146,63,0.5)]"
+            />
+            <div class="assembly-shimmer-sweep"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       2. ISZL SIGNATURE MINIMAL FLOATING HEADER
+       ======================================================================== -->
+  <!-- ========================================================================
+       2. STRATFORD ACADEMY SIGNATURE TWO-TIER HEADER & NAVIGATION
+       ======================================================================== -->
+  <header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-gradient-to-b from-white/95 via-white/85 to-transparent">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 lg:py-3.5 flex items-center justify-between gap-6">
+      
+      <!-- Left: School Crest + Official Stratford-Style Typography -->
+      <a href="#" class="flex items-center gap-3.5 group shrink-0">
+        <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white p-1 shadow-md flex items-center justify-center shrink-0 border border-slate-200 group-hover:scale-105 transition-transform">
+          <img 
+            src="assets/logo.png" 
+            alt="Logo Resmi SMKN 2 Guguak" 
+            class="w-full h-full object-contain"
+          />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-base sm:text-lg md:text-xl font-black tracking-tight text-[#004d22] font-sans uppercase leading-none group-hover:text-[#00923F] transition-colors">
+            SMK NEGERI 2
+          </span>
+          <span class="text-xs sm:text-sm font-extrabold tracking-widest text-[#006e30] font-sans uppercase leading-tight mt-0.5">
+            GUGUAK
+          </span>
+          <span class="text-[9px] font-bold tracking-widest text-[#b88f05] uppercase font-sans mt-0.5">
+            KAB. LIMA PULUH KOTA
+          </span>
+        </div>
+      </a>
+
+      <!-- Right: Two-Tier Desktop Navigation (Stratford Academy Standard) -->
+      <div class="hidden lg:flex flex-col items-end gap-2.5">
+        
+        <!-- Tier 1: Quick Utility Bar -->
+        <div class="flex items-center gap-5 text-xs font-medium text-slate-700">
+          <a href="#faq-section" class="hover:text-emerald-700 transition-colors">Portal Siswa</a>
+          <a href="#berita-section" class="hover:text-emerald-700 transition-colors">Kalender</a>
+          <a href="#berita-section" class="hover:text-emerald-700 transition-colors">Berita dan Acara</a>
+          <a href="#bkk-section" class="hover:text-emerald-700 transition-colors">Alumni & BKK</a>
+          <button class="btn-open-ppdb-modal hover:text-emerald-700 font-semibold transition-colors cursor-pointer">PPDB Online</button>
+          
+          <!-- Search Icon Button -->
+          <button 
+            id="btn-open-search" 
+            class="p-1 text-slate-700 hover:text-emerald-700 transition-colors focus:outline-none flex items-center gap-1 cursor-pointer"
+            aria-label="Cari Informasi"
+            title="Pencarian"
+          >
+            <i data-lucide="search" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+        <!-- Tier 2: Primary Navigation Menu -->
+        <nav class="flex items-center gap-6 text-[13px] font-extrabold uppercase tracking-wider text-[#004d22]">
+          <a href="#about" class="hover:text-[#00923F] transition-colors py-1 relative group">
+            <span>Tentang Kami</span>
+            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#D8AD0F] group-hover:w-full transition-all duration-200"></span>
+          </a>
+          <button class="btn-open-ppdb-modal hover:text-[#00923F] transition-colors py-1 relative group cursor-pointer uppercase font-extrabold">
+            <span>Penerimaan</span>
+            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#D8AD0F] group-hover:w-full transition-all duration-200"></span>
+          </button>
+          <a href="#academics-section" class="hover:text-[#00923F] transition-colors py-1 relative group">
+            <span>Akademisi</span>
+            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#D8AD0F] group-hover:w-full transition-all duration-200"></span>
+          </a>
+          <a href="#fasilitas-section" class="hover:text-[#00923F] transition-colors py-1 relative group">
+            <span>Fasilitas</span>
+            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#D8AD0F] group-hover:w-full transition-all duration-200"></span>
+          </a>
+          <a href="#pillars-section" class="hover:text-[#00923F] transition-colors py-1 relative group">
+            <span>Keunggulan</span>
+            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#D8AD0F] group-hover:w-full transition-all duration-200"></span>
+          </a>
+          <a href="#bkk-section" class="hover:text-[#00923F] transition-colors py-1 relative group">
+            <span>BKK & Industri</span>
+            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#D8AD0F] group-hover:w-full transition-all duration-200"></span>
+          </a>
+          <a href="#kontak-section" class="hover:text-[#00923F] transition-colors py-1 relative group">
+            <span>Kontak Kami</span>
+            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#D8AD0F] group-hover:w-full transition-all duration-200"></span>
+          </a>
+        </nav>
+
+      </div>
+
+      <!-- Mobile / Tablet Action Trigger Group (lg:hidden) -->
+      <div class="flex lg:hidden items-center gap-2.5">
+        <button 
+          id="btn-open-search-mobile" 
+          class="p-2 text-slate-800 hover:text-emerald-700 hover:bg-slate-100 rounded-lg transition-colors cursor-pointer"
+          aria-label="Cari Informasi"
+        >
+          <i data-lucide="search" class="w-5 h-5"></i>
+        </button>
+        <button 
+          id="btn-mobile-menu" 
+          class="flex items-center gap-1.5 px-3 py-2 bg-[#00923F] text-white rounded-lg shadow-sm font-bold text-xs uppercase tracking-wider hover:bg-[#007a34] border border-[#D8AD0F]/40 transition-colors cursor-pointer"
+          aria-label="Buka Menu"
+        >
+          <i data-lucide="menu" class="w-4 h-4"></i>
+          <span>Menu</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       STRATFORD SIGNATURE FLOATING SIDE DOCK (Right Viewport Edge)
+       - Dynamic: Horizontal at top of page, morphs into Vertical tabs on scroll
+       ======================================================================== -->
+  <aside id="stratford-side-dock" class="fixed right-0 top-1/2 -translate-y-1/2 z-40 hidden md:flex flex-col gap-1.5" aria-label="Aksi Cepat PPDB & Kampus">
+    <button class="btn-open-inquire-modal stratford-dock-tab stratford-dock-inquire cursor-pointer" title="Inquire / Menanyakan">
+      <span class="dock-tab-label">MENANYAKAN</span>
+    </button>
+    <a href="#fasilitas-section" class="stratford-dock-tab stratford-dock-visit cursor-pointer" title="Experience Campus / Mengunjungi">
+      <span class="dock-tab-label">MENGUNJUNGI</span>
+    </a>
+    <button class="btn-open-ppdb-modal stratford-dock-tab stratford-dock-apply cursor-pointer" title="Apply Online / Menerapkan">
+      <span class="dock-tab-label">MENERAPKAN</span>
+    </button>
+  </aside>
+
+  <!-- ========================================================================
+       FULL VIEWPORT NAVIGATION DRAWER (Opened via Center Scoop or Mobile Menu)
+       ======================================================================== -->
+  <div id="mobile-drawer" class="fixed inset-0 z-[100] bg-[#041f15]/85 backdrop-blur-md hidden transition-opacity" data-lenis-prevent>
+    <div class="bg-[#041f15] text-white border-r border-emerald-500/20 w-4/5 max-w-sm h-full p-6 shadow-2xl flex flex-col justify-between overflow-y-auto" data-lenis-prevent>
+      <div>
+        <div class="flex items-center justify-between pb-6 border-b border-white/10">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-white p-1 shadow-md flex items-center justify-center shrink-0">
+              <img src="assets/logo.png" alt="Logo Resmi SMKN 2 Guguak" class="w-full h-full object-contain">
+            </div>
+            <div>
+              <h3 class="font-serif font-bold text-white leading-tight">SMKN 2 GUGUAK</h3>
+              <span class="text-[10px] text-emerald-400 font-semibold uppercase tracking-wider">Lima Puluh Kota</span>
+            </div>
+          </div>
+          <button id="btn-close-mobile-menu" class="p-2 text-slate-400 hover:text-white hover:bg-white/10 rounded-lg transition-colors" aria-label="Tutup Menu">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+
+        <div class="mt-6 flex flex-col gap-1.5 text-sm font-bold uppercase tracking-wider text-slate-200">
+          <a href="#about" onclick="window.closeSchoolMenu && window.closeSchoolMenu()" class="py-2.5 px-3 rounded-lg hover:bg-white/10 hover:text-emerald-400 transition-colors">About Us (Profil)</a>
+          <a href="#ppdb-section" onclick="window.closeSchoolMenu && window.closeSchoolMenu()" class="py-2.5 px-3 rounded-lg hover:bg-white/10 hover:text-emerald-400 transition-colors">Admissions (PPDB)</a>
+          <a href="#academics-section" onclick="window.closeSchoolMenu && window.closeSchoolMenu()" class="py-2.5 px-3 rounded-lg hover:bg-white/10 hover:text-emerald-400 transition-colors">Program Keahlian</a>
+          <a href="#fasilitas-section" onclick="window.closeSchoolMenu && window.closeSchoolMenu()" class="py-2.5 px-3 rounded-lg hover:bg-white/10 hover:text-emerald-400 transition-colors">Kampus & Fasilitas</a>
+          <a href="#pillars-section" onclick="window.closeSchoolMenu && window.closeSchoolMenu()" class="py-2.5 px-3 rounded-lg hover:bg-white/10 hover:text-emerald-400 transition-colors">Keunggulan SMKN 2</a>
+          <a href="#bkk-section" onclick="window.closeSchoolMenu && window.closeSchoolMenu()" class="py-2.5 px-3 rounded-lg hover:bg-white/10 hover:text-emerald-400 transition-colors">BKK & Mitra Industri</a>
+          <a href="#berita-section" onclick="window.closeSchoolMenu && window.closeSchoolMenu()" class="py-2.5 px-3 rounded-lg hover:bg-white/10 hover:text-emerald-400 transition-colors">Berita & Agenda</a>
+          <a href="#kontak-section" onclick="window.closeSchoolMenu && window.closeSchoolMenu()" class="py-2.5 px-3 rounded-lg hover:bg-white/10 hover:text-emerald-400 transition-colors">Kontak & Lokasi</a>
+        </div>
+      </div>
+
+      <div class="pt-6 border-t border-white/10">
+        <button class="btn-open-ppdb-modal w-full py-3 bg-gradient-to-r from-[#00923F] via-[#007a34] to-[#005a27] hover:from-[#00b04c] hover:to-[#00923F] text-white font-bold uppercase text-xs tracking-wider rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-[#022617]/50 border border-[#D8AD0F]/40 cursor-pointer transition-all">
+          <i data-lucide="check-circle" class="w-4 h-4 text-[#D8AD0F]"></i>
+          Apply for PPDB 2026/2027
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Search Modal (Opened via "Mencari .." capsule) -->
+  <div id="search-modal" class="fixed inset-0 z-50 bg-[#022617]/85 backdrop-blur-md hidden flex items-start justify-center pt-20 md:pt-28 px-4 transition-opacity" data-lenis-prevent>
+    <div class="bg-[#003d1c] border border-[#00923F]/35 w-full max-w-xl rounded-2xl shadow-2xl p-6 text-white transform transition-transform" data-lenis-prevent>
+      <div class="flex items-center justify-between pb-4 border-b border-white/10">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-full bg-[#00923F] flex items-center justify-center text-white shadow-sm border border-[#D8AD0F]/40">
+            <i data-lucide="search" class="w-4 h-4"></i>
+          </div>
+          <div>
+            <span class="font-bold text-sm tracking-wide block">Pencarian SMKN 2 Guguak</span>
+            <span class="text-[11px] text-slate-300">Temukan jurusan, PPDB, agenda, atau fasilitas</span>
+          </div>
+        </div>
+        <button id="btn-close-search" class="text-slate-400 hover:text-white p-1.5 rounded-lg hover:bg-white/10 transition-colors">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="mt-4">
+        <div class="relative">
+          <input 
+            type="text" 
+            id="search-input" 
+            placeholder="Ketik kata kunci (misal: PPDB, PPLG, Lab Komputer, BKK)..." 
+            class="w-full bg-[#041f15]/90 border border-emerald-500/30 rounded-xl px-4 py-3 pl-11 text-white placeholder-slate-400 text-sm focus:outline-none focus:border-emerald-400 transition-colors"
+          />
+          <i data-lucide="search" class="w-4 h-4 text-emerald-400 absolute left-3.5 top-3.5"></i>
+        </div>
+      </div>
+
+      <!-- Quick Search Recommendations / Tags -->
+      <div class="mt-5">
+        <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-2.5">Topik Paling Sering Dicari:</span>
+        <div class="flex flex-wrap gap-2 text-xs">
+          <a href="#ppdb-section" class="search-tag-link px-3 py-1.5 rounded-lg bg-white/10 hover:bg-emerald-600/20 hover:border-emerald-400 border border-white/10 transition-colors flex items-center gap-1.5">
+            <i data-lucide="check-circle" class="w-3 h-3 text-emerald-400"></i>
+            <span>PPDB Online 2026/2027</span>
+          </a>
+          <a href="#academics-section" class="search-tag-link px-3 py-1.5 rounded-lg bg-white/10 hover:bg-emerald-600/20 hover:border-emerald-400 border border-white/10 transition-colors flex items-center gap-1.5">
+            <i data-lucide="code" class="w-3 h-3 text-emerald-400"></i>
+            <span>Jurusan PPLG & TJKT</span>
+          </a>
+          <a href="#academics-section" class="search-tag-link px-3 py-1.5 rounded-lg bg-white/10 hover:bg-emerald-600/20 hover:border-emerald-400 border border-white/10 transition-colors flex items-center gap-1.5">
+            <i data-lucide="calculator" class="w-3 h-3 text-stratford-gold-400"></i>
+            <span>Jurusan AKL & MPLB</span>
+          </a>
+          <a href="#fasilitas-section" class="search-tag-link px-3 py-1.5 rounded-lg bg-white/10 hover:bg-emerald-600/20 hover:border-emerald-400 border border-white/10 transition-colors flex items-center gap-1.5">
+            <i data-lucide="cpu" class="w-3 h-3 text-amber-400"></i>
+            <span>Fasilitas & Lab Komputer</span>
+          </a>
+          <a href="#bkk-section" class="search-tag-link px-3 py-1.5 rounded-lg bg-white/10 hover:bg-emerald-600/20 hover:border-emerald-400 border border-white/10 transition-colors flex items-center gap-1.5">
+            <i data-lucide="building" class="w-3 h-3 text-amber-400"></i>
+            <span>Penyaluran Kerja BKK</span>
+          </a>
+          <a href="#kontak-section" class="search-tag-link px-3 py-1.5 rounded-lg bg-white/10 hover:bg-emerald-600/20 hover:border-emerald-400 border border-white/10 transition-colors flex items-center gap-1.5">
+            <i data-lucide="map-pin" class="w-3 h-3 text-emerald-400"></i>
+            <span>Lokasi Kampus VII Koto Talago</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- ========================================================================
+         3. ISZL SWISS STYLE: PINNED HERO CURTAIN & SCALE-IN TRACK
+         ======================================================================== -->
+    <div id="hero-pinned-track" class="relative z-10" style="height: 240vh;">
+      <section class="hero-sticky-stage sticky top-0 h-screen w-full flex flex-col items-center justify-start overflow-hidden text-white pt-24 sm:pt-28 md:pt-32">
+        
+        <!-- High-Impact Background Image with Scrubbed Parallax Scale -->
+        <div class="absolute inset-0 z-0 overflow-hidden">
+          <img 
+            id="hero-bg-img"
+            src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1920&q=80" 
+            alt="Kampus SMKN 2 Guguak" 
+            class="w-full h-full object-cover object-center filter brightness-95 hero-parallax-bg scale-110"
+          />
+          <div class="absolute inset-0 stratford-hero-overlay"></div>
+        </div>
+
+        <!-- Content with Kinetic Fade & Lift -->
+        <div id="hero-content" class="relative z-10 max-w-5xl mx-auto px-4 md:px-8 text-center flex flex-col items-center">
+          
+          <!-- Stratford Tagline Eyebrow with Mask Reveal -->
+          <div class="overflow-hidden mb-3 sm:mb-4">
+            <span class="iszl-mask-text inline-block text-stratford-gold-400 font-crest text-xs sm:text-sm font-bold tracking-[0.25em] uppercase drop-shadow">
+              Welcome to SMK Negeri 2 Guguak — Where Excellence Takes Flight
+            </span>
+          </div>
+
+          <!-- Grand Serif Headline with Swiss Masked Line Reveals -->
+          <h1 class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold font-serif text-white tracking-tight leading-[1.12] mb-4 sm:mb-6 drop-shadow-md">
+            <span class="block overflow-hidden"><span class="iszl-mask-text block">Membentuk Generasi Unggul</span></span>
+            <span class="block overflow-hidden"><span class="iszl-mask-text block text-stratford-gold-400">di Era Digital & Bisnis Global</span></span>
+          </h1>
+
+          <!-- Subtitle -->
+          <p class="text-sm sm:text-base md:text-lg text-slate-200 font-light max-w-3xl leading-relaxed mb-6 sm:mb-8">
+            Sekolah Menengah Kejuruan Negeri di Nagari VII Koto Talago yang memadukan keunggulan akademik, kompetensi teknologi berstandar industri, dan karakter luhur berlandaskan IMTAQ.
+          </p>
+
+          <!-- Stratford's Signature 3 Action Buttons - Harmonized with Logo Green & Gold -->
+          <div class="flex flex-wrap items-center justify-center gap-3.5">
+            <button class="btn-open-inquire-modal px-7 py-3 bg-[#00923F]/25 hover:bg-[#00923F]/45 text-white font-bold text-xs sm:text-sm uppercase tracking-wider rounded border border-[#00923F]/60 backdrop-blur-sm transition-all hover:scale-105 shadow-md shadow-[#00923F]/20 cursor-pointer">
+              Inquire Today
+            </button>
+            
+            <a href="#fasilitas-section" class="px-7 py-3 bg-transparent hover:bg-[#D8AD0F] hover:text-[#022617] text-[#D8AD0F] font-bold text-xs sm:text-sm uppercase tracking-wider rounded border border-[#D8AD0F] backdrop-blur-sm transition-all hover:scale-105 shadow-md shadow-[#D8AD0F]/15 cursor-pointer">
+              Experience Campus
+            </a>
+
+            <button class="btn-open-ppdb-modal px-8 py-3 bg-gradient-to-r from-[#00923F] via-[#007a34] to-[#005a27] hover:from-[#00b04c] hover:to-[#00923F] text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider rounded border border-[#D8AD0F]/50 shadow-xl shadow-[#00923F]/40 transition-all hover:scale-105 cursor-pointer">
+              Apply for 2026/2027
+            </button>
+          </div>
+
+          <!-- ISZL Signature Horizontal Photo Strip (Scrubbed with Scroll) -->
+          <div class="iszl-horizontal-strip-wrapper mt-6 sm:mt-8 w-full max-w-full">
+            <div id="iszl-photo-rail" class="iszl-horizontal-strip-rail">
+              <!-- Photo 1 -->
+              <div class="iszl-strip-card">
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80" alt="Lab Rekayasa Perangkat Lunak PPLG">
+                <div class="iszl-strip-card-overlay">
+                  <div>
+                    <span class="text-[10px] uppercase font-bold text-stratford-gold-400 block tracking-wider">Teknologi PPLG</span>
+                    <span class="text-xs font-bold leading-tight block">Lab Rekayasa Software & Game</span>
+                  </div>
+                </div>
+              </div>
+              <!-- Photo 2 -->
+              <div class="iszl-strip-card">
+                <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80" alt="Lab Jaringan Komputer & Telekomunikasi TJKT">
+                <div class="iszl-strip-card-overlay">
+                  <div>
+                    <span class="text-[10px] uppercase font-bold text-stratford-gold-400 block tracking-wider">Infrastruktur TJKT</span>
+                    <span class="text-xs font-bold leading-tight block">Fiber Optic, Cisco & Server</span>
+                  </div>
+                </div>
+              </div>
+              <!-- Photo 3 -->
+              <div class="iszl-strip-card">
+                <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&w=600&q=80" alt="Studio Desain Komunikasi Visual DKV">
+                <div class="iszl-strip-card-overlay">
+                  <div>
+                    <span class="text-[10px] uppercase font-bold text-stratford-gold-400 block tracking-wider">Kreatif DKV</span>
+                    <span class="text-xs font-bold leading-tight block">Studio Fotografi & Video Editing</span>
+                  </div>
+                </div>
+              </div>
+              <!-- Photo 4 -->
+              <div class="iszl-strip-card">
+                <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=600&q=80" alt="Bank Mini & Akuntansi Finansial AKL">
+                <div class="iszl-strip-card-overlay">
+                  <div>
+                    <span class="text-[10px] uppercase font-bold text-stratford-gold-400 block tracking-wider">Keuangan AKL</span>
+                    <span class="text-xs font-bold leading-tight block">Bank Mini & Praktik Finansial</span>
+                  </div>
+                </div>
+              </div>
+              <!-- Photo 5 -->
+              <div class="iszl-strip-card">
+                <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=600&q=80" alt="Manajemen Perkantoran & Protokoler MPLB">
+                <div class="iszl-strip-card-overlay">
+                  <div>
+                    <span class="text-[10px] uppercase font-bold text-stratford-gold-400 block tracking-wider">Corporate MPLB</span>
+                    <span class="text-xs font-bold leading-tight block">Simulasi Kantor & Protokoler</span>
+                  </div>
+                </div>
+              </div>
+              <!-- Photo 6 -->
+              <div class="iszl-strip-card">
+                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80" alt="Green Campus & Karakter SMKN 2 Guguak">
+                <div class="iszl-strip-card-overlay">
+                  <div>
+                    <span class="text-[10px] uppercase font-bold text-stratford-gold-400 block tracking-wider">Karakter & Budaya</span>
+                    <span class="text-xs font-bold leading-tight block">Green Campus 1,2 Ha Lima Puluh Kota</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ISZL Style: Subtle Animated Scroll Indicator -->
+        <div id="hero-scroll-cue" class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-slate-300/80 pointer-events-auto transition-opacity duration-300">
+          <span class="text-[10px] sm:text-xs uppercase font-crest tracking-[0.25em] font-medium text-slate-300/90">Scroll to Explore</span>
+          <a href="#main-content-card" class="w-6 h-9 rounded-full border border-white/30 flex items-start justify-center p-1.5 hover:border-stratford-gold-400 transition-colors" aria-label="Gulir ke lembaran konten">
+            <span class="w-1 h-2 rounded-full bg-stratford-gold-400 animate-bounce"></span>
+          </a>
+        </div>
+      </section>
+    </div>
+
+    <!-- ========================================================================
+         ISZL STYLE: ELEVATED STACKING CONTENT CARD LAYER (Glides OVER Pinned Hero)
+         ======================================================================== -->
+    <div id="main-content-card" class="relative z-30 rounded-t-[44px] sm:rounded-t-[60px] bg-slate-50 shadow-[0_-35px_80px_rgba(5,16,33,0.45)] border-t border-white/60">
+
+    <!-- ========================================================================
+         4. STRATFORD SIGNATURE GATEWAY ACTION BAR (DOCKED TILES)
+         ======================================================================== -->
+    <section class="max-w-7xl mx-auto px-4 md:px-8 -mt-14 md:-mt-16 relative z-30">
+      <div class="stratford-gateway-bar grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 overflow-hidden iszl-stagger-group">
+        
+        <!-- Tile 1 -->
+        <a href="#ppdb-section" class="stratford-gateway-item iszl-stagger-item group">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[11px] font-extrabold uppercase tracking-wider text-stratford-gold-500 font-crest">Admissions</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 group-hover:text-stratford-gold-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"></i>
+            </div>
+            <h3 class="text-base font-bold text-stratford-navy-950 group-hover:text-stratford-navy-800 transition-colors">
+              Pendaftaran PPDB Online
+            </h3>
+            <p class="text-slate-500 text-xs mt-2 leading-relaxed">
+              Alur pendaftaran, persyaratan berkas, kuota kejuruan, dan timeline seleksi tahun ajaran baru.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 text-xs font-bold text-stratford-navy-800 flex items-center gap-1 group-hover:text-stratford-gold-500">
+            <span>Learn About Admissions</span>
+            <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+          </div>
+        </a>
+
+        <!-- Tile 2 -->
+        <a href="#academics-section" class="stratford-gateway-item iszl-stagger-item group">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[11px] font-extrabold uppercase tracking-wider text-stratford-gold-500 font-crest">Academics</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 group-hover:text-stratford-gold-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"></i>
+            </div>
+            <h3 class="text-base font-bold text-stratford-navy-950 group-hover:text-stratford-navy-800 transition-colors">
+              5 Program Keahlian
+            </h3>
+            <p class="text-slate-500 text-xs mt-2 leading-relaxed">
+              PPLG (Software), TJKT (Jaringan), DKV (Multimedia), AKL (Akuntansi), dan MPLB (Perkantoran).
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 text-xs font-bold text-stratford-navy-800 flex items-center gap-1 group-hover:text-stratford-gold-500">
+            <span>Explore Programs</span>
+            <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+          </div>
+        </a>
+
+        <!-- Tile 3 -->
+        <a href="#bkk-section" class="stratford-gateway-item iszl-stagger-item group">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[11px] font-extrabold uppercase tracking-wider text-stratford-gold-500 font-crest">Industry & Careers</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 group-hover:text-stratford-gold-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"></i>
+            </div>
+            <h3 class="text-base font-bold text-stratford-navy-950 group-hover:text-stratford-navy-800 transition-colors">
+              Bursa Kerja Khusus (BKK)
+            </h3>
+            <p class="text-slate-500 text-xs mt-2 leading-relaxed">
+              Jejaring 45+ DUDI mitra, program magang PKL di instansi pemerintah, dan rekrutmen kerja alumni.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 text-xs font-bold text-stratford-navy-800 flex items-center gap-1 group-hover:text-stratford-gold-500">
+            <span>Explore Partnerships</span>
+            <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+          </div>
+        </a>
+
+        <!-- Tile 4 -->
+        <a href="#fasilitas-section" class="stratford-gateway-item iszl-stagger-item group">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[11px] font-extrabold uppercase tracking-wider text-stratford-gold-500 font-crest">Campus Life</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 group-hover:text-stratford-gold-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"></i>
+            </div>
+            <h3 class="text-base font-bold text-stratford-navy-950 group-hover:text-stratford-navy-800 transition-colors">
+              Green Campus 12.120 m²
+            </h3>
+            <p class="text-slate-500 text-xs mt-2 leading-relaxed">
+              Lingkungan asri, laboratorium komputer modern, studio podcast/multimedia, dan bank mini.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 text-xs font-bold text-stratford-navy-800 flex items-center gap-1 group-hover:text-stratford-gold-500">
+            <span>Take a Virtual Tour</span>
+            <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         ISZL STYLE: COMMUNITY MANIFESTO CARD ("Kita Semua adalah SMKN 2 Guguak")
+         ======================================================================== -->
+    <div class="max-w-4xl mx-auto px-4 mt-16 mb-8 relative z-30">
+      <div class="iszl-manifesto-card text-center iszl-reveal">
+        <div class="text-5xl text-stratford-gold-400 font-serif leading-none mb-3">“</div>
+        <h3 class="text-2xl sm:text-3xl md:text-4xl font-bold font-serif text-white mb-4">
+          Kita semua adalah SMKN 2 Guguak
+        </h3>
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto mb-8 font-light">
+          Kami adalah institusi pendidikan kejuruan negeri terdepan di Kabupaten Lima Puluh Kota yang berdedikasi menumbuhkan kebersamaan, menyediakan pendidikan vokasi komprehensif, dan memberdayakan siswa untuk menjadi pembelajar seumur hidup yang berakhlak mulia, berwawasan industri, dan siap berkarier secara global.
+        </p>
+        <a href="#about" class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-stratford-gold-500 hover:bg-stratford-gold-400 text-stratford-navy-950 font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-stratford-gold-500/25 transition-all hover:scale-105">
+          <span>Misi dan Visi Kami</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- ========================================================================
+         5. STRATFORD EDITORIAL SECTION: ABOUT & LEADERSHIP WELCOME
+         ======================================================================== -->
+    <section id="about" class="py-24 max-w-7xl mx-auto px-4 md:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Editorial Image Column -->
+        <div class="lg:col-span-5 relative iszl-reveal">
+          <div class="relative rounded-lg overflow-hidden shadow-2xl border-t-4 border-stratford-gold-500">
+            <img 
+              src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=900&q=80" 
+              alt="Aktivitas Belajar SMKN 2 Guguak" 
+              class="w-full h-[460px] object-cover"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-stratford-navy-950/80 via-transparent to-transparent"></div>
+            <div class="absolute bottom-6 left-6 right-6 text-white">
+              <span class="text-xs uppercase tracking-widest text-stratford-gold-400 font-bold font-crest">Established 2011</span>
+              <h4 class="text-xl font-bold font-serif">Membangun Masa Depan Vokasi yang Menginspirasi</h4>
+            </div>
+          </div>
+
+          <!-- Fast Stat Badge -->
+          <div class="absolute -bottom-6 -right-3 sm:right-6 bg-stratford-navy-900 text-white p-5 rounded shadow-xl border-l-4 border-stratford-gold-400 max-w-xs">
+            <div class="text-3xl font-extrabold text-stratford-gold-400 font-serif">14+ Tahun</div>
+            <div class="text-xs text-slate-300 mt-1">Mengabdi Mencerdaskan Generasi Muda Vokasi di Lima Puluh Kota</div>
+          </div>
+        </div>
+
+        <!-- Editorial Text Column (Stratford Style) -->
+        <div class="lg:col-span-7 space-y-6 iszl-reveal">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-0.5 bg-stratford-gold-500"></div>
+            <span class="text-xs font-bold uppercase tracking-widest text-stratford-gold-500 font-crest">The SMKN 2 Difference</span>
+          </div>
+
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold font-serif text-stratford-navy-950 leading-tight">
+            <span class="block overflow-hidden"><span class="iszl-mask-text block">Pendidikan Kejuruan Berkualitas</span></span>
+            <span class="block overflow-hidden"><span class="iszl-mask-text block text-stratford-navy-800">yang Menyatukan Tradisi & Inovasi</span></span>
+          </h2>
+
+          <p class="text-slate-600 leading-relaxed text-base">
+            Sejak didirikan pada tahun 2011 melalui SK No. 785, SMK Negeri 2 Guguak telah menjadi institusi pendidikan kejuruan terdepan di Kabupaten Lima Puluh Kota yang memfokuskan diri pada rumpun <strong>Teknologi Informasi & Komunikasi</strong> serta <strong>Bisnis dan Manajemen</strong>.
+          </p>
+
+          <blockquote class="border-l-4 border-stratford-navy-800 pl-4 py-1 italic text-slate-700 text-base font-serif bg-slate-100/60 rounded-r">
+            "Kami mendidik generasi muda yang tidak hanya siap terserap di dunia industri, namun juga memiliki integritas akhlak, kecakapan adaptif, dan jiwa kewirausahaan."
+          </blockquote>
+
+          <p class="text-slate-600 leading-relaxed text-sm">
+            Kurikulum kami diselaraskan langsung dengan standar Asosiasi Industri dan Badan Nasional Sertifikasi Profesi (BNSP), didukung oleh sarana pembelajaran modern di lahan hijau seluas 1,2 hektar yang aman dan kondusif.
+          </p>
+
+          <div class="pt-2 flex flex-wrap items-center gap-4">
+            <button class="btn-open-inquire-modal px-6 py-3 bg-stratford-navy-900 hover:bg-stratford-navy-800 text-white font-bold text-xs uppercase tracking-wider rounded transition-all">
+              Hubungi Konseling Sekolah
+            </button>
+            <a href="#fasilitas-section" class="px-6 py-3 border border-stratford-navy-900 text-stratford-navy-900 hover:bg-slate-100 font-bold text-xs uppercase tracking-wider rounded transition-all">
+              Jelajahi Fasilitas Kampus
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         ISZL STYLE: PANORAMIC CAMPUS LOCATION ("Suasana yang Indah untuk Menginspirasi")
+         ======================================================================== -->
+    <section class="relative py-28 text-white overflow-hidden bg-stratford-navy-950">
+      <!-- Full-bleed Scenic Panorama Background -->
+      <div class="absolute inset-0 z-0">
+        <img 
+          src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1920&q=80" 
+          alt="Panorama Kampus SMKN 2 Guguak" 
+          class="w-full h-full object-cover filter brightness-75 scale-105"
+        />
+        <div class="absolute inset-0 bg-gradient-to-r from-stratford-navy-950/95 via-stratford-navy-950/75 to-transparent"></div>
+      </div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Left Text & 3 Pin Bullets -->
+        <div class="lg:col-span-8 space-y-6 iszl-reveal">
+          <span class="text-stratford-gold-400 font-crest text-xs font-bold uppercase tracking-[0.25em] block">
+            Kampus & Lingkungan Vokasi
+          </span>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold font-serif leading-tight">
+            Suasana yang Nyaman untuk Menginspirasi.
+          </h2>
+          <p class="text-slate-200 text-sm md:text-base max-w-2xl leading-relaxed font-light">
+            Terletak di Nagari VII Koto Talago yang asri di Kabupaten Lima Puluh Kota, SMKN 2 Guguak adalah ekosistem belajar yang ramah, modern, dan kondusif bagi tumbuh kembang talenta muda teknologi dan bisnis masa depan.
+          </p>
+
+          <!-- 3 Bullets with Numbers -->
+          <div class="space-y-4 pt-4">
+            <div class="flex items-start gap-4">
+              <span class="text-2xl font-serif font-extrabold text-stratford-gold-400 shrink-0">1</span>
+              <div>
+                <h4 class="font-bold text-white text-base">Kampus Hijau Terpadu 12.120 m²</h4>
+                <p class="text-xs text-slate-300">Lahan asri bebas polusi di Nagari VII Koto Talago dengan ruang terbuka hijau yang luas.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <span class="text-2xl font-serif font-extrabold text-stratford-gold-400 shrink-0">5</span>
+              <div>
+                <h4 class="font-bold text-white text-base">Program Keahlian Unggulan Berstandar DUDI</h4>
+                <p class="text-xs text-slate-300">PPLG, TJKT, DKV, AKL, dan MPLB yang diselaraskan dengan kebutuhan industri nasional.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <span class="text-2xl font-serif font-extrabold text-stratford-gold-400 shrink-0">4</span>
+              <div>
+                <h4 class="font-bold text-white text-base">Laboratorium Praktik & Studio Modern Berlisensi BNSP</h4>
+                <p class="text-xs text-slate-300">Lab Cisco/Fiber Optic, Studio Foto & Podcast DKV, Bank Mini, dan Mockup Perkantoran.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Circular Badge -->
+        <div class="lg:col-span-4 flex justify-center lg:justify-end iszl-reveal">
+          <div class="relative flex flex-col items-center">
+            <div class="iszl-circular-photo-badge">
+              <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=400&q=80" alt="Siswa Berprestasi SMKN 2 Guguak" class="w-full h-full object-cover">
+            </div>
+            <div class="mt-4 text-center">
+              <span class="inline-block px-3 py-1 rounded-full bg-stratford-gold-500/20 text-stratford-gold-300 border border-stratford-gold-500/40 text-[10px] font-bold uppercase tracking-wider">
+                Pusat Keunggulan Vokasi
+              </span>
+              <p class="text-xs text-slate-300 mt-1 font-serif">Lima Puluh Kota, Sumatera Barat</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         6. ISZL STYLE: "SMKN 2 GUGUAK SEKILAS" CIRCULAR STAT & NEWS MOSAIC
+         ======================================================================== -->
+    <section id="at-a-glance-section" class="bg-stratford-navy-950 text-white py-24 relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
+        
+        <!-- Header -->
+        <div class="max-w-3xl mb-16 iszl-reveal">
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold font-serif text-white mb-4">
+            SMKN 2 Guguak sekilas
+          </h2>
+          <p class="text-slate-300 text-sm md:text-base leading-relaxed font-light">
+            Sejak tahun 2011, kami telah menawarkan program kejuruan komprehensif dan berstandar nasional yang menghubungkan siswa dengan dunia industri dan perguruan tinggi negeri terkemuka.
+          </p>
+        </div>
+
+        <!-- Vibrant Mosaic Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 items-stretch">
+          
+          <!-- Column 1: Featured News Card (lg:col-span-5) -->
+          <div class="lg:col-span-5 flex flex-col justify-between bg-[#062c1e]/90 rounded-xl overflow-hidden border border-emerald-500/20 shadow-xl iszl-reveal">
+            <div class="relative h-64 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80" alt="Siswa Berprestasi SMKN 2 Guguak" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+              <div class="absolute top-4 right-4 bg-amber-500 text-stratford-navy-950 text-[11px] font-extrabold uppercase px-3 py-1 rounded-sm shadow">
+                Berita Terbaru
+              </div>
+            </div>
+            <div class="p-6">
+              <span class="text-[10px] uppercase font-bold text-stratford-gold-400 tracking-wider">Kemitraan Industri</span>
+              <h3 class="text-xl font-bold font-serif text-white mt-1 mb-2 hover:text-stratford-gold-400 transition-colors">
+                SMKN 2 Guguak Sekolah Berbasis Industri — Mengapa Hal Ini Penting bagi Siswa
+              </h3>
+              <p class="text-slate-400 text-xs leading-relaxed">
+                Penerapan kurikulum berbasis Teaching Factory dan sertifikasi BNSP memastikan lulusan memiliki daya saing tinggi saat memasuki dunia kerja.
+              </p>
+            </div>
+          </div>
+
+          <!-- Column 2: Big Green Circle & Secondary Card (lg:col-span-4) -->
+          <div class="lg:col-span-4 flex flex-col gap-6 justify-between">
+            <!-- Large Emerald Circle (ISZL Green Circle) -->
+            <div class="iszl-circle-stat-green p-8 text-center iszl-reveal">
+              <div class="text-4xl sm:text-5xl md:text-6xl font-extrabold font-serif leading-none">1.250+</div>
+              <div class="text-xs sm:text-sm font-bold uppercase tracking-wider mt-2">Siswa Aktif Berprestasi</div>
+              <p class="text-[11px] text-emerald-100 mt-1 max-w-[200px]">Peserta didik usia 15 hingga 18 tahun dari berbagai daerah</p>
+            </div>
+
+            <!-- News Thumbnail 2 -->
+            <div class="bg-[#062c1e]/80 rounded-xl p-5 border border-emerald-500/20 flex items-center gap-4 iszl-reveal">
+              <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&w=200&q=80" alt="Produksi Studio DKV" class="w-20 h-20 rounded object-cover shrink-0">
+              <div>
+                <span class="text-[10px] font-bold text-amber-400 uppercase">Kreatif DKV</span>
+                <h4 class="text-sm font-bold text-white leading-snug mt-0.5">Produksi Konten Media Kreatif Studio DKV</h4>
+                <a href="#berita-section" class="text-[11px] text-stratford-gold-400 font-semibold mt-1 inline-block">Baca Selengkapnya →</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 3: Forest Circle, Social & Video (lg:col-span-3) -->
+          <div class="lg:col-span-3 flex flex-col gap-6 justify-between">
+            <!-- Deep Forest Green Circle -->
+            <div class="iszl-circle-stat-red p-7 text-center iszl-reveal">
+              <div class="text-4xl sm:text-5xl font-extrabold font-serif leading-none text-white">45+</div>
+              <div class="text-xs font-bold uppercase tracking-wider mt-1.5 text-stratford-gold-300">Mitra Industri (DUDI)</div>
+              <p class="text-[11px] text-emerald-100 mt-1">MoU resmi magang industri & rekrutmen kerja lulusan</p>
+            </div>
+
+            <!-- Social Media Box (Minang Forest to Gold) -->
+            <div class="bg-gradient-to-r from-[#064e3b] via-[#047857] to-[#c69214] rounded-xl p-5 text-white shadow-lg iszl-reveal border border-white/10">
+              <span class="text-[10px] font-extrabold uppercase tracking-widest text-white/95 block mb-2">Terhubung dengan Kami</span>
+              <div class="flex items-center gap-2.5">
+                <a href="https://instagram.com" target="_blank" class="w-8 h-8 rounded-full bg-white/20 hover:bg-white text-white hover:text-emerald-800 flex items-center justify-center transition-all" title="Instagram">
+                  <i data-lucide="instagram" class="w-4 h-4"></i>
+                </a>
+                <a href="https://youtube.com" target="_blank" class="w-8 h-8 rounded-full bg-white/20 hover:bg-white text-white hover:text-emerald-800 flex items-center justify-center transition-all" title="YouTube">
+                  <i data-lucide="youtube" class="w-4 h-4"></i>
+                </a>
+                <a href="https://facebook.com" target="_blank" class="w-8 h-8 rounded-full bg-white/20 hover:bg-white text-white hover:text-emerald-800 flex items-center justify-center transition-all" title="Facebook">
+                  <i data-lucide="facebook" class="w-4 h-4"></i>
+                </a>
+                <a href="https://wa.me/6281234567890" target="_blank" class="w-8 h-8 rounded-full bg-white/20 hover:bg-white text-white hover:text-emerald-800 flex items-center justify-center transition-all" title="WhatsApp">
+                  <i data-lucide="message-circle" class="w-4 h-4"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Row Bottom: Royal Gold Circle & Video Tour Callout -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mt-8 items-center">
+          
+          <!-- Royal Minang Gold Circle -->
+          <div class="lg:col-span-4 iszl-reveal">
+            <div class="iszl-circle-stat-blue p-8 text-center">
+              <div class="text-4xl sm:text-5xl md:text-6xl font-extrabold font-serif leading-none text-stratford-navy-950">94.2%</div>
+              <div class="text-xs sm:text-sm font-extrabold uppercase tracking-wider mt-2 text-stratford-navy-900">Serapan Kerja & Kuliah</div>
+              <p class="text-[11px] text-amber-950/85 font-medium mt-1">Lulusan bekerja di industri, berwirausaha, dan diterima di PTN</p>
+            </div>
+          </div>
+
+          <!-- Video Play Box (ISZL Video Callout) -->
+          <div class="lg:col-span-8 bg-[#062c1e]/90 rounded-xl p-8 border border-emerald-500/20 flex flex-col sm:flex-row items-center justify-between gap-6 iszl-reveal">
+            <div class="space-y-2 text-center sm:text-left">
+              <div class="flex items-center justify-center sm:justify-start gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="text-xs font-bold uppercase tracking-widest text-slate-300">Profil Video Kampus</span>
+              </div>
+              <h3 class="text-2xl font-bold font-serif text-white">
+                Melihat Langsung Kehidupan Vokasi di SMKN 2 Guguak
+              </h3>
+              <p class="text-xs text-slate-400 max-w-lg">
+                Kegiatan praktik, inovasi teknologi, dan kehangatan komunitas di kampus hijau Nagari VII Koto Talago.
+              </p>
+            </div>
+            <a href="https://youtube.com" target="_blank" class="shrink-0 flex items-center gap-3 px-6 py-3.5 bg-gradient-to-r from-emerald-700 to-emerald-600 hover:from-emerald-600 hover:to-emerald-500 border border-emerald-400/30 text-white font-bold text-xs uppercase tracking-wider rounded-full shadow-lg shadow-emerald-950/40 transition-all hover:scale-105">
+              <i data-lucide="play" class="w-4 h-4 fill-white"></i>
+              <span>Tonton Video</span>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         7. STRATFORD ACADEMIC DIVISIONS (PROGRAM EXPLORER TILES)
+         ======================================================================== -->
+    <section id="academics-section" class="py-24 max-w-7xl mx-auto px-4 md:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 iszl-reveal">
+        <div>
+          <span class="text-stratford-gold-500 font-crest text-xs font-bold uppercase tracking-[0.2em] block mb-1">
+            Academic Excellence
+          </span>
+          <h2 class="text-3xl md:text-5xl font-bold font-serif text-stratford-navy-950">
+            <span class="block overflow-hidden"><span class="iszl-mask-text block">Explore Our Divisions</span></span>
+          </h2>
+          <p class="text-slate-600 text-sm md:text-base mt-2 max-w-2xl">
+            Kurikulum kejuruan terpadu yang dirancang untuk mengasah keahlian teknis tingkat lanjut serta membentuk karakter profesional.
+          </p>
+        </div>
+
+        <div class="mt-4 md:mt-0">
+          <button class="btn-open-ppdb-modal text-xs uppercase tracking-wider font-bold text-stratford-navy-800 hover:text-stratford-gold-500 flex items-center gap-1">
+            <span>Download Viewbook PPDB</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Division Grid (Stratford Style Large Photography Cards) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 iszl-stagger-group">
+        
+        <!-- Division 1: PPLG / Software -->
+        <div class="stratford-division-card iszl-stagger-item iszl-card group">
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80" alt="Siswa Software SMKN 2 Guguak">
+          <div class="stratford-division-overlay">
+            <span class="text-stratford-gold-400 font-crest text-xs uppercase tracking-widest font-bold mb-1">Technology & IT</span>
+            <h3 class="text-2xl font-bold font-serif text-white mb-2">Pengembangan Perangkat Lunak & Gim (PPLG)</h3>
+            <p class="text-slate-200 text-xs line-clamp-2 mb-4">
+              Rekayasa software web modern, aplikasi Android/iOS, basis data SQL, dan logika game berstandar industri.
+            </p>
+            <button class="btn-open-program-detail text-xs font-bold uppercase tracking-wider text-stratford-gold-300 group-hover:text-white flex items-center gap-1.5 transition-colors" data-program="pplg">
+              <span>Explore Program</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Division 2: TJKT / Jaringan -->
+        <div class="stratford-division-card iszl-stagger-item iszl-card group">
+          <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800&q=80" alt="Siswa Jaringan SMKN 2 Guguak">
+          <div class="stratford-division-overlay">
+            <span class="text-stratford-gold-400 font-crest text-xs uppercase tracking-widest font-bold mb-1">Network & Systems</span>
+            <h3 class="text-2xl font-bold font-serif text-white mb-2">Teknik Jaringan Komputer & Telekomunikasi (TJKT)</h3>
+            <p class="text-slate-200 text-xs line-clamp-2 mb-4">
+              Infrastruktur server Linux/Windows, fiber optic splicing, administrasi router MikroTik & Cisco, serta cyber security dasar.
+            </p>
+            <button class="btn-open-program-detail text-xs font-bold uppercase tracking-wider text-stratford-gold-300 group-hover:text-white flex items-center gap-1.5 transition-colors" data-program="tjkt">
+              <span>Explore Program</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Division 3: DKV / Multimedia -->
+        <div class="stratford-division-card iszl-stagger-item iszl-card group">
+          <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80" alt="Siswa DKV SMKN 2 Guguak">
+          <div class="stratford-division-overlay">
+            <span class="text-stratford-gold-400 font-crest text-xs uppercase tracking-widest font-bold mb-1">Creative Arts & Media</span>
+            <h3 class="text-2xl font-bold font-serif text-white mb-2">Desain Komunikasi Visual (DKV / Multimedia)</h3>
+            <p class="text-slate-200 text-xs line-clamp-2 mb-4">
+              Desain grafis komersial, videografi, fotografi studio, animasi 2D/3D, dan manajemen konten kreatif (Juara LKS Nasional).
+            </p>
+            <button class="btn-open-program-detail text-xs font-bold uppercase tracking-wider text-stratford-gold-300 group-hover:text-white flex items-center gap-1.5 transition-colors" data-program="dkv">
+              <span>Explore Program</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Division 4: AKL / Akuntansi -->
+        <div class="stratford-division-card iszl-stagger-item iszl-card group">
+          <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80" alt="Siswa Akuntansi SMKN 2 Guguak">
+          <div class="stratford-division-overlay">
+            <span class="text-stratford-gold-400 font-crest text-xs uppercase tracking-widest font-bold mb-1">Business & Finance</span>
+            <h3 class="text-2xl font-bold font-serif text-white mb-2">Akuntansi & Keuangan Lembaga (AKL)</h3>
+            <p class="text-slate-200 text-xs line-clamp-2 mb-4">
+              Pembukuan digital, software MYOB & Accurate, perpajakan, dan operasional perbankan di fasilitas Bank Mini sekolah.
+            </p>
+            <button class="btn-open-program-detail text-xs font-bold uppercase tracking-wider text-stratford-gold-300 group-hover:text-white flex items-center gap-1.5 transition-colors" data-program="akl">
+              <span>Explore Program</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Division 5: MPLB / Perkantoran -->
+        <div class="stratford-division-card iszl-stagger-item iszl-card group">
+          <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=800&q=80" alt="Siswa Perkantoran SMKN 2 Guguak">
+          <div class="stratford-division-overlay">
+            <span class="text-stratford-gold-400 font-crest text-xs uppercase tracking-widest font-bold mb-1">Corporate Management</span>
+            <h3 class="text-2xl font-bold font-serif text-white mb-2">Manajemen Perkantoran & Layanan Bisnis (MPLB)</h3>
+            <p class="text-slate-200 text-xs line-clamp-2 mb-4">
+              Otomatisasi kantor modern, kearsipan elektronik, etika komunikasi bisnis, dan tata kelola protokoler perusahaan.
+            </p>
+            <button class="btn-open-program-detail text-xs font-bold uppercase tracking-wider text-stratford-gold-300 group-hover:text-white flex items-center gap-1.5 transition-colors" data-program="mplb">
+              <span>Explore Program</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Special Guidance Card -->
+        <div class="bg-gradient-to-br from-stratford-navy-950 to-stratford-navy-900 rounded-lg p-8 text-white flex flex-col justify-between shadow-lg border border-stratford-gold-500/30 iszl-stagger-item iszl-card">
+          <div>
+            <span class="text-stratford-gold-400 font-crest text-xs uppercase tracking-widest font-bold block mb-2">Advising & Placement</span>
+            <h3 class="text-2xl font-bold font-serif mb-3">Konsultasi Pemilihan Jurusan</h3>
+            <p class="text-slate-300 text-xs leading-relaxed">
+              Tim Bimbingan Konseling SMKN 2 Guguak siap memberikan asesmen minat bakat bagi calon peserta didik untuk memastikan pilihan jurusan tepat sasaran.
+            </p>
+          </div>
+          <div class="pt-6">
+            <button class="btn-open-inquire-modal w-full py-3 bg-stratford-gold-500 hover:bg-stratford-gold-400 text-stratford-navy-950 font-bold uppercase text-xs tracking-wider rounded transition-all">
+              Hubungi Konselor BK
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================================================
+         8. STRATFORD "THE EXPERIENCE / 4 PILLARS OF EXCELLENCE"
+         ======================================================================== -->
+    <section id="pillars-section" class="py-20 bg-slate-100/70 border-y border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 md:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16 iszl-reveal">
+          <span class="text-stratford-gold-500 font-crest text-xs font-bold uppercase tracking-[0.2em] block mb-1">
+            Core Institutional Pillars
+          </span>
+          <h2 class="text-3xl md:text-5xl font-bold font-serif text-stratford-navy-950">
+            <span class="block overflow-hidden"><span class="iszl-mask-text block">The SMKN 2 Guguak Experience</span></span>
+          </h2>
+          <p class="text-slate-600 text-sm md:text-base mt-2">
+            Empat fondasi utama yang membedakan pengalaman belajar dan memastikan keberhasilan setiap lulusan.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 iszl-stagger-group">
+          
+          <!-- Pillar 1 -->
+          <div class="bg-white p-7 rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition-shadow iszl-stagger-item iszl-card">
+            <div class="w-12 h-12 rounded bg-gradient-to-br from-[#064e3b] to-stratford-navy-950 text-stratford-gold-300 border border-emerald-500/30 shadow-sm flex items-center justify-center font-bold text-lg mb-5">
+              01
+            </div>
+            <h3 class="text-lg font-bold font-serif text-stratford-navy-950 mb-2">Kurikulum Selaras Industri</h3>
+            <p class="text-slate-600 text-xs leading-relaxed">
+              Penerapan sistem *Link & Match* bersama mitra DUDI untuk menjamin keterampilan yang dipelajari selalu mutakhir dan relevan.
+            </p>
+          </div>
+
+          <!-- Pillar 2 -->
+          <div class="bg-white p-7 rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition-shadow iszl-stagger-item iszl-card">
+            <div class="w-12 h-12 rounded bg-gradient-to-br from-[#064e3b] to-stratford-navy-950 text-stratford-gold-300 border border-emerald-500/30 shadow-sm flex items-center justify-center font-bold text-lg mb-5">
+              02
+            </div>
+            <h3 class="text-lg font-bold font-serif text-stratford-navy-950 mb-2">Karakter Luhur & IMTAQ</h3>
+            <p class="text-slate-600 text-xs leading-relaxed">
+              Pembiasaan adab sebelum ilmu, nilai keagamaan yang kuat, serta tata krama budaya Minangkabau dalam etika kerja sehari-hari.
+            </p>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div class="bg-white p-7 rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition-shadow iszl-stagger-item iszl-card">
+            <div class="w-12 h-12 rounded bg-gradient-to-br from-[#064e3b] to-stratford-navy-950 text-stratford-gold-300 border border-emerald-500/30 shadow-sm flex items-center justify-center font-bold text-lg mb-5">
+              03
+            </div>
+            <h3 class="text-lg font-bold font-serif text-stratford-navy-950 mb-2">Sertifikasi Profesi BNSP</h3>
+            <p class="text-slate-600 text-xs leading-relaxed">
+              Melalui Lembaga Sertifikasi Profesi Pihak Pertama (LSP-P1), seluruh siswa diuji oleh asesor profesional dan lulus berlisensi resmi.
+            </p>
+          </div>
+
+          <!-- Pillar 4 -->
+          <div class="bg-white p-7 rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition-shadow iszl-stagger-item iszl-card">
+            <div class="w-12 h-12 rounded bg-gradient-to-br from-[#064e3b] to-stratford-navy-950 text-stratford-gold-300 border border-emerald-500/30 shadow-sm flex items-center justify-center font-bold text-lg mb-5">
+              04
+            </div>
+            <h3 class="text-lg font-bold font-serif text-stratford-navy-950 mb-2">Green Campus 12.120 m²</h3>
+            <p class="text-slate-600 text-xs leading-relaxed">
+              Kawasan belajar yang asri, hijau, dan dilengkapi sarana laboratorium berstandar industri demi kenyamanan dan konsentrasi belajar.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         9. STRATFORD INTERACTIVE CAMPUS TOUR & FACILITIES
+         ======================================================================== -->
+    <section id="fasilitas-section" class="py-24 max-w-7xl mx-auto px-4 md:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14 iszl-reveal">
+        <span class="text-stratford-gold-500 font-crest text-xs font-bold uppercase tracking-[0.2em] block mb-1">
+          Campus & Facilities
+        </span>
+        <h2 class="text-3xl md:text-5xl font-bold font-serif text-stratford-navy-950">
+          Lingkungan Belajar yang Asri & Modern
+        </h2>
+        <p class="text-slate-600 text-sm mt-2">
+          Jelajahi sarana dan prasarana kampus hijau SMKN 2 Guguak yang mendukung kenyamanan pembelajaran teori dan praktik.
+        </p>
+      </div>
+
+      <!-- Interactive Tab & Visual Display -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-white p-6 md:p-8 rounded-lg shadow-xl border border-slate-200 iszl-reveal">
+        
+        <!-- Tab Column -->
+        <div class="lg:col-span-5 space-y-2.5">
+          <button class="facility-tab-btn w-full text-left p-4 rounded border border-emerald-800 bg-emerald-800 text-white font-semibold text-xs uppercase tracking-wider transition-all flex items-center justify-between" data-facility="green_campus">
+            <span class="flex items-center gap-3">
+              <i data-lucide="trees" class="w-4 h-4 text-stratford-gold-400"></i>
+              <span>Green Campus 12.120 m²</span>
+            </span>
+            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+          </button>
+
+          <button class="facility-tab-btn w-full text-left p-4 rounded border border-slate-200 bg-white hover:bg-slate-50 text-slate-800 font-semibold text-xs uppercase tracking-wider transition-all flex items-center justify-between" data-facility="it_lab">
+            <span class="flex items-center gap-3">
+              <i data-lucide="cpu" class="w-4 h-4 text-slate-600"></i>
+              <span>Lab Komputer & Fiber Optik</span>
+            </span>
+            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+          </button>
+
+          <button class="facility-tab-btn w-full text-left p-4 rounded border border-slate-200 bg-white hover:bg-slate-50 text-slate-800 font-semibold text-xs uppercase tracking-wider transition-all flex items-center justify-between" data-facility="multimedia_studio">
+            <span class="flex items-center gap-3">
+              <i data-lucide="video" class="w-4 h-4 text-slate-600"></i>
+              <span>Studio Multimedia & Podcast</span>
+            </span>
+            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+          </button>
+
+          <button class="facility-tab-btn w-full text-left p-4 rounded border border-slate-200 bg-white hover:bg-slate-50 text-slate-800 font-semibold text-xs uppercase tracking-wider transition-all flex items-center justify-between" data-facility="bank_mini">
+            <span class="flex items-center gap-3">
+              <i data-lucide="landmark" class="w-4 h-4 text-slate-600"></i>
+              <span>Bank Mini & Simulasi Kantor</span>
+            </span>
+            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+          </button>
+
+          <button class="facility-tab-btn w-full text-left p-4 rounded border border-slate-200 bg-white hover:bg-slate-50 text-slate-800 font-semibold text-xs uppercase tracking-wider transition-all flex items-center justify-between" data-facility="perpustakaan">
+            <span class="flex items-center gap-3">
+              <i data-lucide="book-open" class="w-4 h-4 text-slate-600"></i>
+              <span>Perpustakaan & Pojok Digital</span>
+            </span>
+            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+        <!-- Visual Display Column -->
+        <div class="lg:col-span-7">
+          <div class="relative h-[380px] md:h-[420px] rounded overflow-hidden shadow-md">
+            <img 
+              id="facility-display-image" 
+              src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80" 
+              alt="Green Campus SMKN 2 Guguak" 
+              class="w-full h-full object-cover transition-opacity duration-300"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-stratford-navy-950/85 via-stratford-navy-950/30 to-transparent"></div>
+            
+            <div class="absolute bottom-6 left-6 right-6 text-white space-y-2">
+              <span id="facility-display-tag" class="inline-block px-3 py-1 bg-stratford-gold-500 text-stratford-navy-950 text-[10px] font-bold uppercase tracking-wider rounded">
+                Karakter & Kenyamanan Belajar
+              </span>
+              <h3 id="facility-display-title" class="text-xl md:text-2xl font-bold font-serif">
+                Lingkungan Asri & Hijau (Green Campus 12.120 m²)
+              </h3>
+              <p id="facility-display-desc" class="text-xs md:text-sm text-slate-200 line-clamp-3">
+                Dikelilingi pepohonan rindang dan panorama alam Nagari VII Koto Talago, SMKN 2 Guguak memberikan iklim belajar yang sejuk, bebas kebisingan, dan menunjang konsentrasi para siswa.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================================================
+         10. STRATFORD NEWS & EVENTS EDITORIAL SECTION
+         ======================================================================== -->
+    <section id="berita-section" class="py-20 bg-slate-100/60 border-t border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 md:px-8 iszl-reveal">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+          
+          <!-- Column Left: News & Stories (Stratford Editorial Style) -->
+          <div class="lg:col-span-7 space-y-6">
+            <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+              <div>
+                <span class="text-stratford-gold-500 font-crest text-xs font-bold uppercase tracking-wider">Campus Stories</span>
+                <h3 class="text-2xl font-bold font-serif text-stratford-navy-950">Berita & Informasi Terbaru</h3>
+              </div>
+              <a href="#" class="text-xs font-bold uppercase tracking-wider text-stratford-navy-800 hover:text-stratford-gold-500">
+                View All Stories →
+              </a>
+            </div>
+
+            <div class="space-y-5 iszl-stagger-group">
+              <!-- Featured Story 1 -->
+              <article class="stratford-news-card iszl-stagger-item iszl-card p-5 flex flex-col sm:flex-row gap-5">
+                <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=400&q=80" alt="Siswa PKL SMKN 2 Guguak" class="w-full sm:w-48 h-36 object-cover rounded shrink-0">
+                <div class="flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center gap-2 text-xs text-slate-400 mb-1.5">
+                      <span class="text-stratford-navy-700 font-bold uppercase text-[10px]">Kemitraan DUDI</span>
+                      <span>•</span>
+                      <span>20 November 2026</span>
+                    </div>
+                    <h4 class="font-bold text-stratford-navy-950 text-base leading-snug hover:text-stratford-gold-500 transition-colors">
+                      Pelepasan 180 Siswa Praktik Kerja Lapangan (PKL) ke Instansi Pemerintah & Industri Mitra
+                    </h4>
+                    <p class="text-slate-500 text-xs mt-2 line-clamp-2">
+                      SMKN 2 Guguak menerjunkan siswa ke Pengadilan Tata Usaha Negara, perbankan, dan perusahaan teknologi di Sumatera Barat dan Riau.
+                    </p>
+                  </div>
+                  <span class="text-xs font-bold text-stratford-navy-800 mt-2 hover:underline">Read Story →</span>
+                </div>
+              </article>
+
+              <!-- Featured Story 2 -->
+              <article class="stratford-news-card iszl-stagger-item iszl-card p-5 flex flex-col sm:flex-row gap-5">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=400&q=80" alt="Prestasi LKS SMKN 2 Guguak" class="w-full sm:w-48 h-36 object-cover rounded shrink-0">
+                <div class="flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center gap-2 text-xs text-slate-400 mb-1.5">
+                      <span class="text-stratford-gold-500 font-bold uppercase text-[10px]">Prestasi Siswa</span>
+                      <span>•</span>
+                      <span>14 November 2026</span>
+                    </div>
+                    <h4 class="font-bold text-stratford-navy-950 text-base leading-snug hover:text-stratford-gold-500 transition-colors">
+                      Kontingen SMKN 2 Guguak Raih Juara 1 LKS Bidang Web Technologies Tingkat Kabupaten
+                    </h4>
+                    <p class="text-slate-500 text-xs mt-2 line-clamp-2">
+                      Prestasi membanggakan kembali diraih jurusan PPLG yang berhasil mengamankan tiket menuju LKS Provinsi Sumatera Barat.
+                    </p>
+                  </div>
+                  <span class="text-xs font-bold text-stratford-navy-800 mt-2 hover:underline">Read Story →</span>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <!-- Column Right: Stratford Calendar Feed -->
+          <div class="lg:col-span-5 space-y-6" id="bkk-section">
+            <div class="border-b border-slate-200 pb-3">
+              <span class="text-stratford-gold-500 font-crest text-xs font-bold uppercase tracking-wider">Calendar</span>
+              <h3 class="text-2xl font-bold font-serif text-stratford-navy-950">Upcoming Events</h3>
+            </div>
+
+            <div class="space-y-4 iszl-stagger-group">
+              <!-- Event 1 -->
+              <div class="bg-white p-4 rounded border border-slate-200 flex items-start gap-4 hover:border-stratford-gold-500 transition-colors shadow-sm iszl-stagger-item iszl-card">
+                <div class="stratford-date-badge shrink-0">
+                  <span class="block text-[10px] uppercase font-bold text-stratford-gold-300 font-crest">DES</span>
+                  <span class="block text-2xl font-extrabold font-serif">08</span>
+                </div>
+                <div>
+                  <span class="text-[10px] font-bold text-stratford-gold-500 uppercase tracking-wider">Akademik</span>
+                  <h5 class="font-bold text-stratford-navy-950 text-sm mt-0.5">Penilaian Akhir Semester Ganjil 2026/2027 Berbasis Komputer</h5>
+                  <p class="text-xs text-slate-500 mt-1">Ujian serentak di lab komputer sekolah.</p>
+                </div>
+              </div>
+
+              <!-- Event 2 -->
+              <div class="bg-white p-4 rounded border border-slate-200 flex items-start gap-4 hover:border-stratford-gold-500 transition-colors shadow-sm iszl-stagger-item iszl-card">
+                <div class="stratford-date-badge shrink-0">
+                  <span class="block text-[10px] uppercase font-bold text-stratford-gold-300 font-crest">DES</span>
+                  <span class="block text-2xl font-extrabold font-serif">20</span>
+                </div>
+                <div>
+                  <span class="text-[10px] font-bold text-stratford-gold-500 uppercase tracking-wider">Karier Alumni</span>
+                  <h5 class="font-bold text-stratford-navy-950 text-sm mt-0.5">Job Fair & Walk-in Interview Bursa Kerja Khusus (BKK)</h5>
+                  <p class="text-xs text-slate-500 mt-1">Rekrutmen langsung bersama 12 perusahaan rekanan.</p>
+                </div>
+              </div>
+
+              <!-- Event 3 -->
+              <div class="bg-white p-4 rounded border border-slate-200 flex items-start gap-4 hover:border-stratford-gold-500 transition-colors shadow-sm iszl-stagger-item iszl-card">
+                <div class="stratford-date-badge shrink-0">
+                  <span class="block text-[10px] uppercase font-bold text-stratford-gold-300 font-crest">JAN</span>
+                  <span class="block text-2xl font-extrabold font-serif">10</span>
+                </div>
+                <div>
+                  <span class="text-[10px] font-bold text-stratford-gold-500 uppercase tracking-wider">Sosialisasi PPDB</span>
+                  <h5 class="font-bold text-stratford-navy-950 text-sm mt-0.5">Open House & Edufair PPDB Tahun Pelajaran 2027</h5>
+                  <p class="text-xs text-slate-500 mt-1">Kunjungan terbuka untuk siswa SMP/MTs se-Kabupaten.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- BKK Box Banner (Harmonized Emerald & Gold) -->
+            <div class="bg-stratford-navy-950 text-white p-6 rounded border-l-4 border-emerald-500 shadow-md flex items-center justify-between iszl-reveal">
+              <div>
+                <h5 class="font-bold text-sm uppercase tracking-wider text-stratford-gold-400 font-crest">Portal BKK & Alumni</h5>
+                <p class="text-xs text-slate-300 mt-1">Penelusuran tamatan dan registrasi mitra DUDI baru.</p>
+              </div>
+              <a href="#kontak-section" class="px-4 py-2 bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 text-white font-bold text-xs uppercase tracking-wider rounded transition-all shrink-0 shadow-md">
+                Akses BKK
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         11. STRATFORD "TAKE THE NEXT STEP" HIGH-IMPACT CONVERSION BANNER
+         ======================================================================== -->
+    <section class="bg-stratford-navy-950 py-20 text-white text-center border-t border-stratford-gold-500/20">
+      <div class="max-w-4xl mx-auto px-4 md:px-8 space-y-6 iszl-reveal">
+        
+        <span class="text-stratford-gold-400 font-crest text-xs font-bold uppercase tracking-[0.25em]">
+          Begin Your Journey
+        </span>
+
+        <h2 class="text-3xl md:text-5xl font-bold font-serif leading-tight">
+          Take the Next Step at SMKN 2 Guguak
+        </h2>
+
+        <p class="text-slate-300 text-sm md:text-base leading-relaxed max-w-2xl mx-auto">
+          Temukan potensi terbaik Anda, kembangkan keterampilan teknologi dan bisnis berstandar dunia kerja, dan raih masa depan gemilang bersama kami.
+        </p>
+
+        <!-- Stratford's Signature 3 Action Buttons -->
+        <div class="pt-4 flex flex-wrap items-center justify-center gap-4">
+          <button class="btn-open-inquire-modal px-8 py-3.5 bg-transparent hover:bg-white/10 text-white font-bold text-xs uppercase tracking-wider rounded border border-white/40 transition-all">
+            Inquire Today
+          </button>
+          
+          <a href="#fasilitas-section" class="px-8 py-3.5 bg-transparent hover:bg-stratford-gold-400 hover:text-stratford-navy-950 text-stratford-gold-300 font-bold text-xs uppercase tracking-wider rounded border border-stratford-gold-400 transition-all">
+            Schedule a Visit
+          </a>
+
+          <button class="btn-open-ppdb-modal px-8 py-3.5 bg-gradient-to-r from-emerald-600 via-[#046a38] to-[#005a36] hover:from-emerald-500 hover:to-[#047857] text-white font-extrabold text-xs uppercase tracking-wider rounded border border-emerald-400/40 shadow-xl shadow-emerald-950/50 transition-all">
+            Apply Online for 2026/2027
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    </div> <!-- End of #main-content-card (ISZL Elevated Stacking Layer) -->
+
+  </main>
+
+  <!-- ========================================================================
+       12. STRATFORD ACADEMIC INSTITUTIONAL FOOTER
+       ======================================================================== -->
+  <footer id="kontak-section" class="bg-[#021810] text-slate-300 pt-16 pb-12 border-t-4 border-[#046a38]">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-emerald-900/40">
+        
+        <!-- School Identity Column -->
+        <div class="lg:col-span-5 space-y-4">
+          <div class="flex items-center gap-3.5">
+            <div class="w-14 h-14 rounded-full bg-white p-1.5 shadow-md flex items-center justify-center shrink-0 border border-white/20">
+              <img src="assets/logo.png" alt="Logo Resmi SMKN 2 Guguak" class="w-full h-full object-contain">
+            </div>
+            <div>
+              <h3 class="text-xl font-bold font-serif text-white tracking-wide">SMK NEGERI 2 KEC. GUGUAK</h3>
+              <p class="text-xs text-stratford-gold-400 font-crest">Where Excellence Takes Flight</p>
+            </div>
+          </div>
+          
+          <p class="text-slate-400 text-xs leading-relaxed max-w-sm">
+            Institusi pendidikan kejuruan negeri terakreditasi B yang mendidik insan profesional di bidang Teknologi Informasi, Multimedia, Perkantoran, dan Akuntansi Keuangan berlandaskan IMTAQ.
+          </p>
+
+          <div class="flex items-center gap-3 pt-1">
+            <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded text-xs font-mono text-stratford-gold-300">NPSN: 10310872</span>
+            <span class="px-2.5 py-1 bg-white/5 border border-white/10 rounded text-xs font-bold text-emerald-400">AKREDITASI B</span>
+          </div>
+        </div>
+
+        <!-- Directory: About Us -->
+        <div class="lg:col-span-2 space-y-3">
+          <h4 class="text-white font-crest font-bold text-xs uppercase tracking-widest text-stratford-gold-400">About</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#about" class="hover:text-white transition-colors">History & Mission</a></li>
+            <li><a href="#about" class="hover:text-white transition-colors">School Leadership</a></li>
+            <li><a href="#at-a-glance-section" class="hover:text-white transition-colors">School Profile</a></li>
+            <li><a href="#fasilitas-section" class="hover:text-white transition-colors">Campus Tour</a></li>
+            <li><a href="#kontak-section" class="hover:text-white transition-colors">Employment</a></li>
+          </ul>
+        </div>
+
+        <!-- Directory: Academics -->
+        <div class="lg:col-span-2 space-y-3">
+          <h4 class="text-white font-crest font-bold text-xs uppercase tracking-widest text-stratford-gold-400">Divisions</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#academics-section" class="hover:text-white transition-colors">PPLG / Software</a></li>
+            <li><a href="#academics-section" class="hover:text-white transition-colors">TJKT / Jaringan</a></li>
+            <li><a href="#academics-section" class="hover:text-white transition-colors">DKV / Multimedia</a></li>
+            <li><a href="#academics-section" class="hover:text-white transition-colors">AKL / Akuntansi</a></li>
+            <li><a href="#academics-section" class="hover:text-white transition-colors">MPLB / Perkantoran</a></li>
+          </ul>
+        </div>
+
+        <!-- Directory: Contact Info -->
+        <div class="lg:col-span-3 space-y-3">
+          <h4 class="text-white font-crest font-bold text-xs uppercase tracking-widest text-stratford-gold-400">Contact Us</h4>
+          <div class="space-y-2.5 text-xs">
+            <p class="flex items-start gap-2">
+              <i data-lucide="map-pin" class="w-4 h-4 text-stratford-gold-400 shrink-0 mt-0.5"></i>
+              <span>Jl. Tuanku Nan Biru, Jorong Ampang Gadang, Nagari VII Koto Talago, Kec. Guguak, Kab. Lima Puluh Kota, Sumatera Barat 26253</span>
+            </p>
+            <p class="flex items-center gap-2">
+              <i data-lucide="mail" class="w-4 h-4 text-stratford-gold-400 shrink-0"></i>
+              <span>info@smkn2guguak.sch.id</span>
+            </p>
+            <p class="flex items-center gap-2">
+              <i data-lucide="phone" class="w-4 h-4 text-stratford-gold-400 shrink-0"></i>
+              <span>(0752) 7750-XXX / 0812-XXXX-XXXX</span>
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Legal & Stratford Trademark Bottom Bar -->
+      <div class="pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+        <p>© 2026 SMK Negeri 2 Kecamatan Guguak. Seluruh Hak Cipta Dilindungi.</p>
+        <div class="flex items-center gap-4 text-[11px]">
+          <a href="#" class="hover:text-slate-400">Non-Discrimination Policy</a>
+          <span>•</span>
+          <a href="#" class="hover:text-slate-400">Privacy Policy</a>
+          <span>•</span>
+          <a href="#" class="hover:text-slate-400">Site Map</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       13. MODAL: INQUIRE / KONSULTASI PENDAFTARAN (STRATFORD INQUIRY FORM)
+       ======================================================================== -->
+  <div id="inquire-modal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4" data-lenis-prevent>
+    <div class="modal-container bg-white w-full max-w-xl max-h-[85vh] rounded-xl overflow-y-auto shadow-2xl p-6 md:p-8 relative" data-lenis-prevent>
+      <button id="btn-close-inquire-modal" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-colors cursor-pointer" aria-label="Tutup Modal">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+
+      <div class="border-b border-slate-100 pb-4 mb-5">
+        <span class="text-[#D8AD0F] font-crest text-xs font-bold uppercase tracking-wider">Admissions Inquiry</span>
+        <h3 class="text-2xl font-bold font-serif text-[#004d22] mt-1">Hubungi Tim Penerimaan Siswa</h3>
+        <p class="text-xs text-slate-500 mt-1">Dapatkan informasi detail mengenai program keahlian, beasiswa, dan alur seleksi.</p>
+      </div>
+
+      <form class="space-y-4 text-xs">
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Nama Calon Siswa / Orang Tua *</label>
+          <input type="text" required placeholder="Contoh: Muhammad Ikhsan / Bapak Rahmat" class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:border-[#00923F] focus:ring-1 focus:ring-[#00923F] text-xs">
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Nomor WhatsApp Aktif *</label>
+          <input type="tel" required placeholder="0812XXXXXXXX" class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:border-[#00923F] focus:ring-1 focus:ring-[#00923F] text-xs">
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Asal Sekolah SMP/MTs *</label>
+          <input type="text" required placeholder="Contoh: SMPN 1 Guguak / MTsN Lima Puluh Kota" class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:border-[#00923F] focus:ring-1 focus:ring-[#00923F] text-xs">
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Program Keahlian yang Diminati</label>
+          <select class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:border-[#00923F] focus:ring-1 focus:ring-[#00923F] text-xs bg-white">
+            <option>PPLG (Pengembangan Perangkat Lunak & Gim)</option>
+            <option>TJKT (Teknik Jaringan Komputer & Telekomunikasi)</option>
+            <option>DKV (Desain Komunikasi Visual / Multimedia)</option>
+            <option>AKL (Akuntansi dan Keuangan Lembaga)</option>
+            <option>MPLB (Manajemen Perkantoran dan Layanan Bisnis)</option>
+            <option>Belum yakin / Ingin konsultasi bakat</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Pertanyaan atau Catatan Tambahan</label>
+          <textarea rows="3" placeholder="Tuliskan pertanyaan Anda mengenai pendaftaran..." class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:border-[#00923F] focus:ring-1 focus:ring-[#00923F] text-xs"></textarea>
+        </div>
+
+        <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-[#00923F] via-[#007a34] to-[#005a27] hover:from-[#00b04c] hover:to-[#00923F] text-white font-extrabold uppercase tracking-wider text-xs rounded-lg transition-all shadow-lg shadow-[#00923F]/30 border border-[#D8AD0F]/40 cursor-pointer mt-3 mb-2">
+          Kirim Formulir Pertanyaan
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       14. MODAL: PROGRAM DETAIL DRAWER
+       ======================================================================== -->
+  <div id="program-detail-modal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4" data-lenis-prevent>
+    <div class="modal-container bg-white w-full max-w-2xl max-h-[90vh] rounded-lg overflow-y-auto shadow-2xl relative" data-lenis-prevent>
+      <button id="btn-close-program-modal" class="absolute top-5 right-5 w-8 h-8 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-colors z-20">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+      <div id="modal-program-content">
+        <!-- Content dynamically populated by app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       15. MODAL: PANDUAN PENDAFTARAN PPDB ONLINE (APPLY)
+       ======================================================================== -->
+  <div id="ppdb-modal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4" data-lenis-prevent>
+    <div class="modal-container bg-white w-full max-w-2xl max-h-[85vh] rounded-xl overflow-y-auto shadow-2xl p-6 md:p-8 relative" data-lenis-prevent>
+      <button id="btn-close-ppdb-modal" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-colors z-20 cursor-pointer" aria-label="Tutup Modal">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+      
+      <div class="border-b border-slate-100 pb-4 mb-5">
+        <span class="text-[#D8AD0F] font-crest text-xs font-bold uppercase tracking-wider">Admissions Portal</span>
+        <h3 class="text-2xl font-bold font-serif text-[#004d22] mt-1">Alur Pendaftaran Siswa Baru (PPDB 2026/2027)</h3>
+        <p class="text-xs text-slate-500 mt-1">SMK Negeri 2 Guguak • Gratis Tanpa Biaya Pendaftaran</p>
+      </div>
+
+      <div class="space-y-4 text-xs text-slate-700">
+        <!-- Step 1 -->
+        <div class="flex items-start gap-4">
+          <div class="w-7 h-7 rounded-full bg-[#00923F] text-white font-bold flex items-center justify-center shrink-0 border border-[#D8AD0F]/50 shadow-sm">1</div>
+          <div>
+            <h4 class="font-bold text-[#004d22] text-sm">Registrasi Akun Siswa</h4>
+            <p class="text-slate-500 mt-0.5">Mengisi formulir online dengan NISN, nama lengkap, asal sekolah SMP/MTs, dan nomor WhatsApp aktif.</p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="flex items-start gap-4">
+          <div class="w-7 h-7 rounded-full bg-[#00923F] text-white font-bold flex items-center justify-center shrink-0 border border-[#D8AD0F]/50 shadow-sm">2</div>
+          <div>
+            <h4 class="font-bold text-[#004d22] text-sm">Unggah Berkas Persyaratan</h4>
+            <p class="text-slate-500 mt-0.5">Scan Surat Keterangan Lulus (SKL), Kartu Keluarga, Rapor semester 1-5, dan pas foto resmi 3x4.</p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="flex items-start gap-4">
+          <div class="w-7 h-7 rounded-full bg-[#00923F] text-white font-bold flex items-center justify-center shrink-0 border border-[#D8AD0F]/50 shadow-sm">3</div>
+          <div>
+            <h4 class="font-bold text-[#004d22] text-sm">Uji Minat & Bakat Kejuruan</h4>
+            <p class="text-slate-500 mt-0.5">Wawancara peminatan jurusan (PPLG, TJKT, DKV, AKL, atau MPLB) serta tes buta warna (khusus konsentrasi TIK).</p>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="flex items-start gap-4">
+          <div class="w-7 h-7 rounded-full bg-[#00923F] text-white font-bold flex items-center justify-center shrink-0 border border-[#D8AD0F]/50 shadow-sm">4</div>
+          <div>
+            <h4 class="font-bold text-[#004d22] text-sm">Pengumuman & Daftar Ulang</h4>
+            <p class="text-slate-500 mt-0.5">Pengumuman hasil seleksi melalui website dan verifikasi berkas fisik di sekretariat PPDB SMKN 2 Guguak.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-7 pt-4 border-t border-slate-100 flex flex-wrap gap-4 items-center justify-between">
+        <a href="https://wa.me/6281234567890?text=Halo%20Panitia%20PPDB%20SMKN%202%20Guguak,%20saya%20ingin%20mendaftar" target="_blank" class="px-6 py-2.5 bg-gradient-to-r from-[#00923F] via-[#007a34] to-[#005a27] hover:from-[#00b04c] hover:to-[#00923F] text-white font-bold uppercase tracking-wider text-xs rounded-lg flex items-center gap-2 transition-all shadow-md shadow-[#00923F]/25 border border-[#D8AD0F]/40 cursor-pointer">
+          <i data-lucide="send" class="w-3.5 h-3.5 text-[#D8AD0F]"></i>
+          <span>Hubungi Panitia via WhatsApp</span>
+        </a>
+        <span class="text-xs text-slate-500 font-medium">Sekretariat Buka: 08.00 - 15.00 WIB</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lenis Smooth Scroll (ISZL Swiss Fluid Momentum Scrolling - Local Offline Library) -->
+  <script src="lenis.min.js"></script>
+  <!-- Lucide Icon Activation -->
+  <script>
+    lucide.createIcons();
+  </script>
+  <!-- Application JS -->
+  <script src="app.js"></script>
+</body>
+</html>
