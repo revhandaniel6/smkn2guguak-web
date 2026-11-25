@@ -584,9 +584,9 @@ body {
 .stratford-hero-overlay {
   background: linear-gradient(
     180deg,
-    rgba(2, 38, 23, 0.72) 0%,
-    rgba(0, 77, 34, 0.44) 48%,
-    rgba(2, 38, 23, 0.88) 100%
+    rgba(2, 30, 18, 0.48) 0%,
+    rgba(2, 30, 18, 0.22) 48%,
+    rgba(2, 30, 18, 0.64) 100%
   );
 }
 

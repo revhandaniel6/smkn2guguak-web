@@ -811,7 +811,7 @@ function initISZLScrollEffects() {
         }
 
         if (heroOverlay) {
-          heroOverlay.style.opacity = `${Math.max(0.18, 1 - s * 0.82)}`;
+          heroOverlay.style.opacity = `${Math.max(0.06, 1 - s * 0.94)}`;
         }
       }
 
