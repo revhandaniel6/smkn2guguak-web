@@ -822,7 +822,8 @@ function initISZLScrollEffects() {
       if (rect.top < window.innerHeight && rect.bottom > 0) {
         const totalTravel = window.innerHeight + rect.height;
         const mProgress = Math.min(1, Math.max(0, (window.innerHeight - rect.top) / totalTravel));
-        const railOffset = mProgress * 360;
+        const maxShift = window.innerWidth >= 768 ? 820 : 320;
+        const railOffset = mProgress * maxShift;
         photoRail.style.transform = `translate3d(-${railOffset}px, 0, 0)`;
       }
     }

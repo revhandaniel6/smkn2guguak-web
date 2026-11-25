@@ -967,13 +967,29 @@ html.lenis, html.lenis body {
 /* ISZL Manifesto Background Horizontal Strip */
 .iszl-manifesto-bg-strip {
   position: absolute;
-  inset: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: max(2rem, calc(50% - 37.5rem));
   display: flex;
   align-items: center;
   overflow: hidden;
   pointer-events: none;
   z-index: 10;
-  opacity: 0.92;
+  opacity: 0.95;
+  -webkit-mask-image: linear-gradient(to right, transparent 0px, rgba(0, 0, 0, 0.25) 140px, #000 320px, #000 100%);
+  mask-image: linear-gradient(to right, transparent 0px, rgba(0, 0, 0, 0.25) 140px, #000 320px, #000 100%);
+}
+
+@media (max-width: 767px) {
+  .iszl-manifesto-bg-strip {
+    position: relative;
+    left: 0;
+    right: auto;
+    margin-bottom: 1.75rem;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
 }
 
 /* Elevate sheet over pinned stage */
@@ -1148,7 +1164,13 @@ html.lenis, html.lenis body {
   width: max-content;
   will-change: transform;
   transition: transform 0.12s linear;
-  padding-left: 5vw;
+  padding-left: clamp(320px, 42vw, 560px);
+}
+
+@media (max-width: 767px) {
+  .iszl-horizontal-strip-rail {
+    padding-left: 1rem;
+  }
 }
 
 .iszl-strip-card {
