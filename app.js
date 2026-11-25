@@ -766,10 +766,11 @@ function initISZLScrollEffects() {
 
     // 4. ISZL Hero Shrink-to-Frame & Frosted Glass Editorial Card Choreography
     const trackRange = heroTrack ? Math.max(1, heroTrack.offsetHeight - window.innerHeight) : 1200;
-    const heroProgress = Math.min(1, Math.max(0, scrollY / trackRange));
+    const extendedHeroProgress = Math.max(0, scrollY / trackRange);
+    const heroProgress = Math.min(1, extendedHeroProgress);
     const isDesktop = window.innerWidth >= 768;
 
-    if (scrollY <= trackRange + window.innerHeight * 0.6) {
+    if (scrollY <= trackRange + window.innerHeight * 0.75) {
       // Scroll Cue fades out early
       if (heroScrollCue) {
         const cueOpacity = Math.max(0, 1 - heroProgress / 0.14);
@@ -818,19 +819,33 @@ function initISZLScrollEffects() {
         heroBg.style.transform = `scale(${1.06 - heroProgress * 0.06})`;
       }
 
-      // Frosted Glass Editorial Card slides in beside the shrunk frame
+      // Frosted Glass Editorial Card: enters smoothly, then keeps rising upward while blurring & fading out
       if (heroGlassCard) {
-        const cardRaw = Math.min(1, Math.max(0, (heroProgress - 0.40) / 0.36));
-        const g = 1 - Math.pow(1 - cardRaw, 3);
-        heroGlassCard.style.opacity = `${g}`;
-        heroGlassCard.style.pointerEvents = g > 0.35 ? 'auto' : 'none';
+        const enterRaw = Math.min(1, Math.max(0, (extendedHeroProgress - 0.38) / 0.26));
+        const enterEase = 1 - Math.pow(1 - enterRaw, 3);
+        const exitRaw = Math.min(1, Math.max(0, (extendedHeroProgress - 0.70) / 0.42));
+        const exitEase = exitRaw * exitRaw * (3 - 2 * exitRaw);
+
+        const riseProgress = Math.max(0, extendedHeroProgress - 0.38);
+        const yOffsetPx = isDesktop ? (56 - riseProgress * 200) : (40 - riseProgress * 150);
+        const xOffsetPx = isDesktop ? (1 - enterEase) * 32 : 0;
+        const cardOpacity = Math.max(0, enterEase * (1 - exitEase * 1.05));
+        const cardBlur = exitEase * 16;
+
+        heroGlassCard.style.opacity = `${cardOpacity.toFixed(3)}`;
+        heroGlassCard.style.filter = cardBlur > 0.05 ? `blur(${cardBlur.toFixed(2)}px)` : 'none';
+        heroGlassCard.style.pointerEvents = cardOpacity > 0.25 ? 'auto' : 'none';
 
         if (isDesktop) {
-          heroGlassCard.style.transform = `translate3d(${(1 - g) * 44}px, -50%, 0)`;
+          heroGlassCard.style.transform = `translate3d(${xOffsetPx.toFixed(1)}px, calc(-50% + ${yOffsetPx.toFixed(1)}px), 0)`;
         } else {
-          heroGlassCard.style.transform = `translate3d(0, ${(1 - g) * 24}px, 0)`;
+          heroGlassCard.style.transform = `translate3d(0, ${yOffsetPx.toFixed(1)}px, 0)`;
         }
       }
+    } else if (heroGlassCard) {
+      heroGlassCard.style.opacity = '0';
+      heroGlassCard.style.filter = 'blur(16px)';
+      heroGlassCard.style.pointerEvents = 'none';
     }
 
     // 5. Manifesto Horizontal Photo Rail Scrubbing + Frosted Glass Blur & Vanish
