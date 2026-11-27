@@ -54,7 +54,7 @@
   <script src="lucide.min.js"></script>
 
   <!-- Custom Stratford Stylesheet -->
-  <link rel="stylesheet" href="style.css?v=4">
+  <link rel="stylesheet" href="style.css?v=5">
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased selection:bg-emerald-800 selection:text-white">
 
@@ -811,12 +811,14 @@
           </div>
 
           <!-- Column 2: Big Green Circle & Secondary Card (lg:col-span-4) -->
-          <div class="lg:col-span-4 flex flex-col gap-6 justify-between">
+          <div id="stat-slot-students" class="lg:col-span-4 flex flex-col gap-6 justify-between">
             <!-- Large Emerald Circle (ISZL Green Circle) -->
-            <div class="iszl-circle-stat-green p-8 text-center iszl-reveal">
-              <div class="text-4xl sm:text-5xl md:text-6xl font-extrabold font-serif leading-none">1.250+</div>
-              <div class="text-xs sm:text-sm font-bold uppercase tracking-wider mt-2">Siswa Aktif Berprestasi</div>
-              <p class="text-[11px] text-emerald-100 mt-1 max-w-[200px]">Peserta didik usia 15 hingga 18 tahun dari berbagai daerah</p>
+            <div id="stat-orbit-students" class="iszl-stat-orbit">
+              <div class="iszl-circle-stat-green p-8 text-center iszl-reveal">
+                <div class="text-4xl sm:text-5xl md:text-6xl font-extrabold font-serif leading-none">1.250+</div>
+                <div class="text-xs sm:text-sm font-bold uppercase tracking-wider mt-2">Siswa Aktif Berprestasi</div>
+                <p class="text-[11px] text-emerald-100 mt-1 max-w-[200px]">Peserta didik usia 15 hingga 18 tahun dari berbagai daerah</p>
+              </div>
             </div>
 
             <!-- News Thumbnail 2 -->
@@ -831,12 +833,14 @@
           </div>
 
           <!-- Column 3: Forest Circle, Social & Video (lg:col-span-3) -->
-          <div class="lg:col-span-3 flex flex-col gap-6 justify-between">
+          <div id="stat-slot-partners" class="lg:col-span-3 flex flex-col gap-6 justify-between">
             <!-- Deep Forest Green Circle -->
-            <div class="iszl-circle-stat-red p-7 text-center iszl-reveal">
-              <div class="text-4xl sm:text-5xl font-extrabold font-serif leading-none text-white">45+</div>
-              <div class="text-xs font-bold uppercase tracking-wider mt-1.5 text-stratford-gold-300">Mitra Industri (DUDI)</div>
-              <p class="text-[11px] text-emerald-100 mt-1">MoU resmi magang industri & rekrutmen kerja lulusan</p>
+            <div id="stat-orbit-partners" class="iszl-stat-orbit">
+              <div class="iszl-circle-stat-red p-7 text-center iszl-reveal">
+                <div class="text-4xl sm:text-5xl font-extrabold font-serif leading-none text-white">45+</div>
+                <div class="text-xs font-bold uppercase tracking-wider mt-1.5 text-stratford-gold-300">Mitra Industri (DUDI)</div>
+                <p class="text-[11px] text-emerald-100 mt-1">MoU resmi magang industri & rekrutmen kerja lulusan</p>
+              </div>
             </div>
 
             <!-- Social Media Box (Minang Forest to Gold) -->
@@ -1588,6 +1592,6 @@
     lucide.createIcons();
   </script>
   <!-- Application JS -->
-  <script src="app.js?v=6"></script>
+  <script src="app.js?v=7"></script>
 </body>
 </html>

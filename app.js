@@ -727,6 +727,11 @@ function initISZLScrollEffects() {
   const photoRail = document.getElementById('iszl-photo-rail');
   const railPrevBtn = document.getElementById('manifesto-rail-prev');
   const railNextBtn = document.getElementById('manifesto-rail-next');
+  const atAGlanceSection = document.getElementById('at-a-glance-section');
+  const statSlotStudents = document.getElementById('stat-slot-students');
+  const statSlotPartners = document.getElementById('stat-slot-partners');
+  const statOrbitStudents = document.getElementById('stat-orbit-students');
+  const statOrbitPartners = document.getElementById('stat-orbit-partners');
   const parallaxImages = document.querySelectorAll('.stratford-division-card img, .stratford-news-card img');
 
   let manualRailOffset = 0;
@@ -1017,7 +1022,54 @@ function initISZLScrollEffects() {
       }
     }
 
-    // 6. Parallax scrubbing on cards
+    // 6. Orbital Swap Rotation for Two Stat Circles ("1.250+" & "45+") on Scroll
+    if (atAGlanceSection && statOrbitStudents && statOrbitPartners && statSlotStudents && statSlotPartners) {
+      const glanceRect = atAGlanceSection.getBoundingClientRect();
+      const startY = window.innerHeight * 0.72;
+      const endY = -260;
+      const orbitRaw = Math.min(1, Math.max(0, (startY - glanceRect.top) / (startY - endY)));
+      const angle = orbitRaw * Math.PI;
+      const swapT = (1 - Math.cos(angle)) / 2;
+      const arcSin = Math.sin(angle);
+
+      if (window.innerWidth >= 1024) {
+        const slotARect = statSlotStudents.getBoundingClientRect();
+        const slotBRect = statSlotPartners.getBoundingClientRect();
+        const widthA = statOrbitStudents.offsetWidth || slotARect.width;
+        const widthB = statOrbitPartners.offsetWidth || slotBRect.width;
+
+        const centerAx = slotARect.left + slotARect.width / 2;
+        const centerAy = slotARect.top + widthA / 2;
+        const centerBx = slotBRect.left + slotBRect.width / 2;
+        const centerBy = slotBRect.top + widthB / 2;
+
+        const distX = centerBx - centerAx;
+        const distY = centerBy - centerAy;
+        const arcY = Math.min(68, Math.abs(distX) * 0.20);
+
+        const ax = swapT * distX;
+        const ay = swapT * distY - arcSin * arcY;
+        const bx = -swapT * distX;
+        const by = -swapT * distY + arcSin * arcY;
+
+        const targetScaleA = widthA > 0 ? Math.max(0.72, widthB / widthA) : 0.78;
+        const targetScaleB = widthB > 0 ? Math.min(1.25, widthA / widthB) : 1.2;
+        const scaleA = 1 + (targetScaleA - 1) * swapT + arcSin * 0.05;
+        const scaleB = 1 + (targetScaleB - 1) * swapT - arcSin * 0.05;
+
+        statOrbitStudents.style.zIndex = arcSin >= 0 ? '25' : '15';
+        statOrbitPartners.style.zIndex = arcSin >= 0 ? '15' : '25';
+        statOrbitStudents.style.transform = `translate3d(${ax.toFixed(1)}px, ${ay.toFixed(1)}px, 0) scale(${scaleA.toFixed(3)})`;
+        statOrbitPartners.style.transform = `translate3d(${bx.toFixed(1)}px, ${by.toFixed(1)}px, 0) scale(${scaleB.toFixed(3)})`;
+      } else {
+        statOrbitStudents.style.zIndex = '';
+        statOrbitPartners.style.zIndex = '';
+        statOrbitStudents.style.transform = `translate3d(${(arcSin * 14).toFixed(1)}px, ${(-arcSin * 8).toFixed(1)}px, 0)`;
+        statOrbitPartners.style.transform = `translate3d(${(-arcSin * 14).toFixed(1)}px, ${(arcSin * 8).toFixed(1)}px, 0)`;
+      }
+    }
+
+    // 7. Parallax scrubbing on cards
     parallaxImages.forEach(img => {
       const rect = img.getBoundingClientRect();
       if (rect.top < window.innerHeight && rect.bottom > 0) {

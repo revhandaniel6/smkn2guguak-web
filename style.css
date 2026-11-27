@@ -1241,6 +1241,13 @@ html.lenis, html.lenis body {
 }
 
 /* 4. Giant Circular Stat Badges (Harmonized with SMKN 2 Guguak Brand Identity) */
+.iszl-stat-orbit {
+  position: relative;
+  width: 100%;
+  will-change: transform;
+  transform-origin: center center;
+}
+
 .iszl-circle-stat-green {
   background: linear-gradient(135deg, #059669 0%, #047857 100%);
   border-radius: 50%;
