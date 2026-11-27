@@ -734,6 +734,8 @@ function initISZLScrollEffects() {
   const statOrbitPartners = document.getElementById('stat-orbit-partners');
   const statSlotGold = document.getElementById('stat-slot-gold');
   const statScaleGold = document.getElementById('stat-scale-gold');
+  const campusBadgeSlot = document.getElementById('campus-badge-slot');
+  const campusPhotoBadge = document.getElementById('campus-photo-badge');
   const parallaxImages = document.querySelectorAll('.stratford-division-card img, .stratford-news-card img');
 
   let manualRailOffset = 0;
@@ -1072,17 +1074,21 @@ function initISZLScrollEffects() {
       }
     }
 
-    // 7. Gold Circle ("94.2%") Scroll Scale: Grows to Max at Center, Shrinks Above & Below
-    if (statSlotGold && statScaleGold) {
-      const goldSlotRect = statSlotGold.getBoundingClientRect();
+    // 7. Viewport-Centered Bell-Curve Scale for Gold Circle ("94.2%") & Campus Photo Badge
+    function applyCenterBellScale(slotEl, targetEl, minScale, maxScale) {
+      if (!slotEl || !targetEl) return;
+      const slotRect = slotEl.getBoundingClientRect();
       const viewCenter = window.innerHeight * 0.54;
-      const slotCenter = goldSlotRect.top + goldSlotRect.height / 2;
-      const halfSpan = Math.max(280, window.innerHeight * 0.52);
+      const slotCenter = slotRect.top + slotRect.height / 2;
+      const halfSpan = Math.max(260, window.innerHeight * 0.52);
       const distNorm = Math.min(1, Math.abs(slotCenter - viewCenter) / halfSpan);
       const bell = (1 + Math.cos(distNorm * Math.PI)) / 2;
-      const goldScale = 0.68 + bell * 0.32;
-      statScaleGold.style.transform = `scale(${goldScale.toFixed(3)})`;
+      const scale = minScale + bell * (maxScale - minScale);
+      targetEl.style.transform = `scale(${scale.toFixed(3)})`;
     }
+
+    applyCenterBellScale(statSlotGold, statScaleGold, 0.68, 1.0);
+    applyCenterBellScale(campusBadgeSlot, campusPhotoBadge, 0.62, 1.0);
 
     // 8. Parallax scrubbing on cards
     parallaxImages.forEach(img => {
