@@ -1028,15 +1028,15 @@ function initISZLScrollEffects() {
       applyManifestoRailTransform(mProgress);
 
       if (manifestoCard) {
-        // Turn increasingly translucent / frosted-glass as images move behind the card
-        const glassP = Math.min(1, Math.max(0, (mProgress - 0.14) / 0.40));
-        // Deepen blur & fade out as user keeps scrolling down past the card
-        const vanishRaw = Math.min(1, Math.max(0, (mProgress - 0.54) / 0.34));
+        // Subtle frosted-glass sheen while keeping text crisp and readable in center view
+        const glassP = Math.min(1, Math.max(0, (mProgress - 0.16) / 0.44));
+        // Only start blurring & fading out after the card passes the comfortable reading zone
+        const vanishRaw = Math.min(1, Math.max(0, (mProgress - 0.68) / 0.24));
         const v = vanishRaw * vanishRaw * (3 - 2 * vanishRaw);
 
-        const backdropBlur = 12 + glassP * 12 + v * 14;
-        const alphaTop = Math.max(0.14, 0.84 - glassP * 0.30 - v * 0.38);
-        const alphaBot = Math.max(0.10, 0.78 - glassP * 0.32 - v * 0.34);
+        const backdropBlur = 14 + glassP * 6 + v * 16;
+        const alphaTop = Math.max(0.18, 0.88 - glassP * 0.10 - v * 0.60);
+        const alphaBot = Math.max(0.14, 0.84 - glassP * 0.10 - v * 0.60);
         const cardBlur = v * 16;
         const cardOpacity = Math.max(0, 1 - v * 1.05);
         const cardLift = v * 28;

@@ -1226,9 +1226,9 @@ html.lenis, html.lenis body {
 
 /* 3. Left-Aligned Frosted Glass Community Manifesto Card ("Kita Semua adalah SMKN 2 Guguak") */
 .iszl-manifesto-card {
-  background: linear-gradient(135deg, rgba(6, 56, 37, 0.84) 0%, rgba(4, 31, 21, 0.78) 100%);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: linear-gradient(135deg, rgba(6, 56, 37, 0.88) 0%, rgba(4, 31, 21, 0.84) 100%);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   color: #ffffff;
   border-radius: 16px;
   padding: 44px 36px;
