@@ -54,7 +54,7 @@
   <script src="lucide.min.js"></script>
 
   <!-- Custom Stratford Stylesheet -->
-  <link rel="stylesheet" href="style.css?v=5">
+  <link rel="stylesheet" href="style.css?v=6">
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased selection:bg-emerald-800 selection:text-white">
 
@@ -869,11 +869,13 @@
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mt-8 items-center">
           
           <!-- Royal Minang Gold Circle -->
-          <div class="lg:col-span-4 iszl-reveal">
-            <div class="iszl-circle-stat-blue p-8 text-center">
-              <div class="text-4xl sm:text-5xl md:text-6xl font-extrabold font-serif leading-none text-stratford-navy-950">94.2%</div>
-              <div class="text-xs sm:text-sm font-extrabold uppercase tracking-wider mt-2 text-stratford-navy-900">Serapan Kerja & Kuliah</div>
-              <p class="text-[11px] text-amber-950/85 font-medium mt-1">Lulusan bekerja di industri, berwirausaha, dan diterima di PTN</p>
+          <div id="stat-slot-gold" class="lg:col-span-4 iszl-reveal">
+            <div id="stat-scale-gold" class="iszl-stat-gold-scale">
+              <div class="iszl-circle-stat-blue p-7 text-center">
+                <div class="text-4xl sm:text-5xl font-extrabold font-serif leading-none text-stratford-navy-950">94.2%</div>
+                <div class="text-xs sm:text-sm font-extrabold uppercase tracking-wider mt-2 text-stratford-navy-900">Serapan Kerja & Kuliah</div>
+                <p class="text-[11px] text-amber-950/85 font-medium mt-1">Lulusan bekerja di industri, berwirausaha, dan diterima di PTN</p>
+              </div>
             </div>
           </div>
 
@@ -1592,6 +1594,6 @@
     lucide.createIcons();
   </script>
   <!-- Application JS -->
-  <script src="app.js?v=8"></script>
+  <script src="app.js?v=9"></script>
 </body>
 </html>

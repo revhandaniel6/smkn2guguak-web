@@ -732,6 +732,8 @@ function initISZLScrollEffects() {
   const statSlotPartners = document.getElementById('stat-slot-partners');
   const statOrbitStudents = document.getElementById('stat-orbit-students');
   const statOrbitPartners = document.getElementById('stat-orbit-partners');
+  const statSlotGold = document.getElementById('stat-slot-gold');
+  const statScaleGold = document.getElementById('stat-scale-gold');
   const parallaxImages = document.querySelectorAll('.stratford-division-card img, .stratford-news-card img');
 
   let manualRailOffset = 0;
@@ -1070,7 +1072,19 @@ function initISZLScrollEffects() {
       }
     }
 
-    // 7. Parallax scrubbing on cards
+    // 7. Gold Circle ("94.2%") Scroll Scale: Grows to Max at Center, Shrinks Above & Below
+    if (statSlotGold && statScaleGold) {
+      const goldSlotRect = statSlotGold.getBoundingClientRect();
+      const viewCenter = window.innerHeight * 0.54;
+      const slotCenter = goldSlotRect.top + goldSlotRect.height / 2;
+      const halfSpan = Math.max(280, window.innerHeight * 0.52);
+      const distNorm = Math.min(1, Math.abs(slotCenter - viewCenter) / halfSpan);
+      const bell = (1 + Math.cos(distNorm * Math.PI)) / 2;
+      const goldScale = 0.68 + bell * 0.32;
+      statScaleGold.style.transform = `scale(${goldScale.toFixed(3)})`;
+    }
+
+    // 8. Parallax scrubbing on cards
     parallaxImages.forEach(img => {
       const rect = img.getBoundingClientRect();
       if (rect.top < window.innerHeight && rect.bottom > 0) {
