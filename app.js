@@ -725,7 +725,16 @@ function initISZLScrollEffects() {
   const manifestoStrip = document.getElementById('manifesto-bg-strip');
   const manifestoCard = document.getElementById('manifesto-card');
   const photoRail = document.getElementById('iszl-photo-rail');
+  const railPrevBtn = document.getElementById('manifesto-rail-prev');
+  const railNextBtn = document.getElementById('manifesto-rail-next');
   const parallaxImages = document.querySelectorAll('.stratford-division-card img, .stratford-news-card img');
+
+  let manualRailOffset = 0;
+  let railDragState = 'idle';
+  let railDragStartX = 0;
+  let railDragStartY = 0;
+  let railDragStartManualOffset = 0;
+  let railSmoothTimeout = null;
 
   function syncManifestoStripBounds() {
     if (!manifestoStrip || !manifestoSection || !manifestoCard) return;
@@ -739,8 +748,127 @@ function initISZLScrollEffects() {
     }
   }
 
+  function getManifestoProgress() {
+    if (!manifestoSection) return 0;
+    const rect = manifestoSection.getBoundingClientRect();
+    const totalTravel = window.innerHeight + rect.height;
+    return Math.min(1, Math.max(0, (window.innerHeight - rect.top) / totalTravel));
+  }
+
+  function getManifestoMaxShift() {
+    if (!photoRail || !manifestoStrip) return window.innerWidth >= 768 ? 1100 : 1400;
+    const stripWidth = manifestoStrip.clientWidth || window.innerWidth;
+    return Math.max(400, photoRail.scrollWidth - stripWidth);
+  }
+
+  function applyManifestoRailTransform(mProgress) {
+    if (!photoRail) return;
+    const maxShift = getManifestoMaxShift();
+    const autoOffset = mProgress * maxShift;
+
+    let totalOffset = autoOffset + manualRailOffset;
+    if (totalOffset < 0) {
+      totalOffset = 0;
+      manualRailOffset = -autoOffset;
+    } else if (totalOffset > maxShift) {
+      totalOffset = maxShift;
+      manualRailOffset = maxShift - autoOffset;
+    }
+
+    photoRail.style.transform = `translate3d(-${totalOffset.toFixed(1)}px, 0, 0)`;
+
+    if (railPrevBtn) railPrevBtn.disabled = totalOffset <= 2;
+    if (railNextBtn) railNextBtn.disabled = totalOffset >= maxShift - 2;
+  }
+
+  function nudgeManifestoRail(deltaPx) {
+    if (!photoRail) return;
+    clearTimeout(railSmoothTimeout);
+    photoRail.style.transition = 'transform 0.35s cubic-bezier(0.16, 1, 0.3, 1)';
+    manualRailOffset += deltaPx;
+    applyManifestoRailTransform(getManifestoProgress());
+    railSmoothTimeout = setTimeout(() => {
+      if (railDragState !== 'dragging') photoRail.style.transition = '';
+    }, 360);
+  }
+
+  if (manifestoStrip && photoRail) {
+    manifestoStrip.addEventListener('pointerdown', (e) => {
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      clearTimeout(railSmoothTimeout);
+      railDragStartX = e.clientX;
+      railDragStartY = e.clientY;
+      railDragStartManualOffset = manualRailOffset;
+
+      if (e.pointerType === 'mouse') {
+        railDragState = 'dragging';
+        manifestoStrip.classList.add('is-dragging');
+        photoRail.style.transition = 'none';
+        try { manifestoStrip.setPointerCapture(e.pointerId); } catch (_) {}
+      } else {
+        railDragState = 'pending';
+      }
+    });
+
+    manifestoStrip.addEventListener('pointermove', (e) => {
+      if (railDragState === 'idle') return;
+      const dx = e.clientX - railDragStartX;
+      const dy = e.clientY - railDragStartY;
+
+      if (railDragState === 'pending') {
+        if (Math.abs(dx) > 8 && Math.abs(dx) > Math.abs(dy) * 1.2) {
+          railDragState = 'dragging';
+          manifestoStrip.classList.add('is-dragging');
+          photoRail.style.transition = 'none';
+          try { manifestoStrip.setPointerCapture(e.pointerId); } catch (_) {}
+        } else if (Math.abs(dy) > 8) {
+          railDragState = 'idle';
+          return;
+        } else {
+          return;
+        }
+      }
+
+      manualRailOffset = railDragStartManualOffset - dx;
+      applyManifestoRailTransform(getManifestoProgress());
+    });
+
+    const endRailDrag = (e) => {
+      if (railDragState === 'idle') return;
+      railDragState = 'idle';
+      manifestoStrip.classList.remove('is-dragging');
+      photoRail.style.transition = '';
+      if (e && e.pointerId !== undefined) {
+        try {
+          if (manifestoStrip.hasPointerCapture(e.pointerId)) {
+            manifestoStrip.releasePointerCapture(e.pointerId);
+          }
+        } catch (_) {}
+      }
+    };
+
+    manifestoStrip.addEventListener('pointerup', endRailDrag);
+    manifestoStrip.addEventListener('pointercancel', endRailDrag);
+
+    manifestoStrip.addEventListener('wheel', (e) => {
+      const horizontalIntent = Math.abs(e.deltaX) > Math.abs(e.deltaY) || (e.shiftKey && e.deltaY !== 0);
+      if (!horizontalIntent) return;
+      e.preventDefault();
+      const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+      manualRailOffset += delta;
+      applyManifestoRailTransform(getManifestoProgress());
+    }, { passive: false });
+  }
+
+  if (railPrevBtn) railPrevBtn.addEventListener('click', () => nudgeManifestoRail(-300));
+  if (railNextBtn) railNextBtn.addEventListener('click', () => nudgeManifestoRail(300));
+
   syncManifestoStripBounds();
-  window.addEventListener('resize', syncManifestoStripBounds);
+  applyManifestoRailTransform(getManifestoProgress());
+  window.addEventListener('resize', () => {
+    syncManifestoStripBounds();
+    applyManifestoRailTransform(getManifestoProgress());
+  });
 
   const easeInOutCubic = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
 
@@ -858,15 +986,11 @@ function initISZLScrollEffects() {
       heroGlassCard.style.pointerEvents = 'none';
     }
 
-    // 5. Manifesto Horizontal Photo Rail Scrubbing + Frosted Glass Blur & Vanish
+    // 5. Manifesto Horizontal Photo Rail Scrubbing + Manual Drag & Frosted Glass Blur/Vanish
     if (photoRail && manifestoSection) {
-      const rect = manifestoSection.getBoundingClientRect();
       syncManifestoStripBounds();
-      const totalTravel = window.innerHeight + rect.height;
-      const mProgress = Math.min(1, Math.max(0, (window.innerHeight - rect.top) / totalTravel));
-      const maxShift = window.innerWidth >= 768 ? 820 : 320;
-      const railOffset = mProgress * maxShift;
-      photoRail.style.transform = `translate3d(-${railOffset}px, 0, 0)`;
+      const mProgress = getManifestoProgress();
+      applyManifestoRailTransform(mProgress);
 
       if (manifestoCard) {
         // Turn increasingly translucent / frosted-glass as images move behind the card

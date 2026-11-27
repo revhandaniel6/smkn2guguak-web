@@ -974,11 +974,19 @@ html.lenis, html.lenis body {
   display: flex;
   align-items: center;
   overflow: hidden;
-  pointer-events: none;
+  pointer-events: auto;
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
   z-index: 10;
   opacity: 0.95;
   -webkit-mask-image: linear-gradient(to right, transparent 0px, rgba(0, 0, 0, 0.25) 140px, #000 320px, #000 100%);
   mask-image: linear-gradient(to right, transparent 0px, rgba(0, 0, 0, 0.25) 140px, #000 320px, #000 100%);
+}
+
+.iszl-manifesto-bg-strip.is-dragging {
+  cursor: grabbing;
 }
 
 @media (max-width: 767px) {
@@ -1165,11 +1173,13 @@ html.lenis, html.lenis body {
   will-change: transform;
   transition: transform 0.12s linear;
   padding-left: clamp(320px, 42vw, 560px);
+  padding-right: 72px;
 }
 
 @media (max-width: 767px) {
   .iszl-horizontal-strip-rail {
     padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 
@@ -1195,6 +1205,9 @@ html.lenis, html.lenis body {
   height: 100%;
   object-fit: cover;
   transition: transform 0.5s ease;
+  -webkit-user-drag: none;
+  user-select: none;
+  pointer-events: none;
 }
 
 .iszl-strip-card:hover img {

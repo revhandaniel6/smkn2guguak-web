@@ -54,7 +54,7 @@
   <script src="lucide.min.js"></script>
 
   <!-- Custom Stratford Stylesheet -->
-  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="stylesheet" href="style.css?v=4">
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased selection:bg-emerald-800 selection:text-white">
 
@@ -608,8 +608,8 @@
       </div>
 
       <!-- Left-Aligned Community Manifesto Card -->
-      <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-20">
-        <div class="max-w-xl mr-auto iszl-reveal">
+      <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-20 pointer-events-none">
+        <div class="max-w-xl mr-auto iszl-reveal pointer-events-auto">
           <div id="manifesto-card" class="iszl-manifesto-card text-left">
             <div class="text-5xl text-stratford-gold-400 font-serif leading-none mb-3">“</div>
             <h3 class="text-2xl sm:text-3xl md:text-4xl font-bold font-serif text-white mb-4">
@@ -624,6 +624,16 @@
             </a>
           </div>
         </div>
+      </div>
+
+      <!-- Manual Horizontal Controls for 6 Department Cards -->
+      <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-20 mt-6 md:mt-0 md:absolute md:bottom-5 md:right-14 flex items-center justify-end gap-2 pointer-events-none">
+        <button id="manifesto-rail-prev" type="button" aria-label="Geser foto jurusan ke kiri" class="pointer-events-auto w-9 h-9 rounded-full bg-white/90 hover:bg-[#00923F] text-[#041f15] hover:text-white border border-emerald-900/15 shadow-md flex items-center justify-center transition-all cursor-pointer disabled:opacity-35 disabled:cursor-not-allowed">
+          <i data-lucide="chevron-left" class="w-4 h-4"></i>
+        </button>
+        <button id="manifesto-rail-next" type="button" aria-label="Geser foto jurusan ke kanan" class="pointer-events-auto w-9 h-9 rounded-full bg-white/90 hover:bg-[#00923F] text-[#041f15] hover:text-white border border-emerald-900/15 shadow-md flex items-center justify-center transition-all cursor-pointer disabled:opacity-35 disabled:cursor-not-allowed">
+          <i data-lucide="chevron-right" class="w-4 h-4"></i>
+        </button>
       </div>
     </section>
 
@@ -1578,6 +1588,6 @@
     lucide.createIcons();
   </script>
   <!-- Application JS -->
-  <script src="app.js?v=5"></script>
+  <script src="app.js?v=6"></script>
 </body>
 </html>
