@@ -736,7 +736,33 @@ function initISZLScrollEffects() {
   const statScaleGold = document.getElementById('stat-scale-gold');
   const campusBadgeSlot = document.getElementById('campus-badge-slot');
   const campusPhotoBadge = document.getElementById('campus-photo-badge');
+  const campusFoamBurst = document.getElementById('campus-foam-burst');
   const parallaxImages = document.querySelectorAll('.stratford-division-card img, .stratford-news-card img');
+
+  const foamBubbles = [];
+  if (campusFoamBurst) {
+    const bubbleVariants = ['iszl-foam-bubble--white', 'iszl-foam-bubble--gold', 'iszl-foam-bubble--emerald'];
+    for (let i = 0; i < 30; i++) {
+      const theta = i * 2.39996;
+      const radFrac = 0.24 + ((i % 7) / 6) * 0.74;
+      const startX = Math.cos(theta) * (radFrac * 86);
+      const startY = Math.sin(theta) * (radFrac * 86);
+      const size = 10 + ((i * 7) % 22);
+      const delay = (1 - radFrac) * 0.26 + (i % 4) * 0.04;
+      const spreadX = Math.cos(theta) * (44 + (i % 5) * 18) + Math.sin(i * 1.7) * 18;
+      const spreadY = Math.sin(theta) * (32 + (i % 4) * 14) - (64 + (i % 6) * 18);
+
+      const el = document.createElement('span');
+      el.className = `iszl-foam-bubble ${bubbleVariants[i % bubbleVariants.length]}`;
+      el.style.width = `${size}px`;
+      el.style.height = `${size}px`;
+      el.style.marginLeft = `${(-size / 2).toFixed(1)}px`;
+      el.style.marginTop = `${(-size / 2).toFixed(1)}px`;
+      campusFoamBurst.appendChild(el);
+
+      foamBubbles.push({ el, startX, startY, delay, spreadX, spreadY });
+    }
+  }
 
   let manualRailOffset = 0;
   let railDragState = 'idle';
@@ -1074,21 +1100,57 @@ function initISZLScrollEffects() {
       }
     }
 
-    // 7. Viewport-Centered Bell-Curve Scale for Gold Circle ("94.2%") & Campus Photo Badge
-    function applyCenterBellScale(slotEl, targetEl, minScale, maxScale) {
-      if (!slotEl || !targetEl) return;
+    // 7. Viewport-Centered Bell-Curve Scale for Gold Circle ("94.2%") & Campus Photo Badge + Foam Dissolve
+    function getCenterBellMetrics(slotEl, minScale, maxScale) {
       const slotRect = slotEl.getBoundingClientRect();
       const viewCenter = window.innerHeight * 0.54;
       const slotCenter = slotRect.top + slotRect.height / 2;
       const halfSpan = Math.max(260, window.innerHeight * 0.52);
-      const distNorm = Math.min(1, Math.abs(slotCenter - viewCenter) / halfSpan);
+      const signedDist = (viewCenter - slotCenter) / halfSpan;
+      const distNorm = Math.min(1, Math.abs(signedDist));
       const bell = (1 + Math.cos(distNorm * Math.PI)) / 2;
       const scale = minScale + bell * (maxScale - minScale);
-      targetEl.style.transform = `scale(${scale.toFixed(3)})`;
+      return { scale, signedDist };
     }
 
-    applyCenterBellScale(statSlotGold, statScaleGold, 0.68, 1.0);
-    applyCenterBellScale(campusBadgeSlot, campusPhotoBadge, 0.62, 1.0);
+    if (statSlotGold && statScaleGold) {
+      const { scale } = getCenterBellMetrics(statSlotGold, 0.68, 1.0);
+      statScaleGold.style.transform = `scale(${scale.toFixed(3)})`;
+    }
+
+    if (campusBadgeSlot && campusPhotoBadge) {
+      const { scale, signedDist } = getCenterBellMetrics(campusBadgeSlot, 0.62, 1.0);
+      const foamP = signedDist > 0
+        ? Math.min(1, Math.max(0, (signedDist - 0.16) / 0.68))
+        : 0;
+      const badgeOpacity = Math.max(0, 1 - Math.min(1, foamP / 0.72));
+      const badgeBlur = foamP * 10;
+
+      campusPhotoBadge.style.transform = `scale(${scale.toFixed(3)})`;
+      campusPhotoBadge.style.opacity = `${badgeOpacity.toFixed(3)}`;
+      campusPhotoBadge.style.filter = badgeBlur > 0.05 ? `blur(${badgeBlur.toFixed(2)}px)` : 'none';
+
+      for (let i = 0; i < foamBubbles.length; i++) {
+        const b = foamBubbles[i];
+        if (foamP <= 0.001) {
+          b.el.style.opacity = '0';
+          continue;
+        }
+        const localP = Math.min(1, Math.max(0, (foamP - b.delay) / (1 - b.delay)));
+        const easeOut = 1 - Math.pow(1 - localP, 2.2);
+        const fadeIn = Math.min(1, localP / 0.18);
+        const fadeOut = Math.max(0, 1 - Math.pow(Math.max(0, (localP - 0.22) / 0.78), 1.35));
+        const bOpacity = fadeIn * fadeOut * 0.95;
+        const bScale = 0.35 + Math.sin(Math.min(1, localP * 1.15) * Math.PI) * 0.85;
+        const tx = b.startX + b.spreadX * easeOut;
+        const ty = b.startY + b.spreadY * easeOut;
+        const bBlur = localP > 0.45 ? ((localP - 0.45) / 0.55) * 4 : 0;
+
+        b.el.style.opacity = `${bOpacity.toFixed(3)}`;
+        b.el.style.transform = `translate3d(${tx.toFixed(1)}px, ${ty.toFixed(1)}px, 0) scale(${bScale.toFixed(2)})`;
+        b.el.style.filter = bBlur > 0.05 ? `blur(${bBlur.toFixed(2)}px)` : 'none';
+      }
+    }
 
     // 8. Parallax scrubbing on cards
     parallaxImages.forEach(img => {
